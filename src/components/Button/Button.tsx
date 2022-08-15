@@ -4,7 +4,7 @@ import useColorButton from '../../hooks';
 
 interface IButton {
   children: React.ReactNode;
-  type?: string;
+  type?: 'primary' | 'outlined' | 'danger';
   disabled?: boolean;
   height?: string;
   width?: string;
