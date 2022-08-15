@@ -92,5 +92,8 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/simplenightdv"
   },
-  "repository": "https://github.com/simplenightdv/simplenight-ui"
+  "repository": "https://github.com/simplenightdv/simplenight-ui",
+  "dependencies": {
+    "classnames": "^2.3.1"
+  }
 }

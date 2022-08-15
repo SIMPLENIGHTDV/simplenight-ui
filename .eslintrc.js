@@ -30,7 +30,7 @@ module.exports = {
     'import/no-named-as-default': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'no-multi-spaces': ['error'],
     'import/no-extraneous-dependencies': 'off',
     'object-curly-newline': 'off',
