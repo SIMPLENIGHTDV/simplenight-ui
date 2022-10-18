@@ -1,0 +1,27 @@
+.input-radio {
+    position: relative;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-clip: content-box;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.input-radio:checked::before {
+    content: '';
+    position: absolute;
+    top: 2.3px;
+    left: 2.3px;
+    width: 1.09rem;
+    height: 1.09rem;
+    background-color: transparent;
+    border: 3.3px solid #fff;
+    border-radius: 50%;
+}
+
+.input-radio:focus {
+    outline: none;
+}
