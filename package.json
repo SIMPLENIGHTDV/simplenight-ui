@@ -92,5 +92,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/simplenightdv"
   },
-  "repository": "https://github.com/simplenightdv/simplenight-ui"
+  "repository": "https://github.com/simplenightdv/simplenight-ui",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2"
+  }
 }
