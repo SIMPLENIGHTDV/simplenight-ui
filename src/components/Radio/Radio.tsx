@@ -24,7 +24,7 @@ const Radio = ({
       value={value}
       onChange={() => onChange?.(value)}
       checked={checked}
-      className="input-radio border border-dark-300 text-primary-600 checked:bg-primary-1000 checked:border-transparent  focus:ring-0"
+      className="input-radio border border-dark-30 checked:bg-primary-1000 checked:before:bg-primary-1000  focus:ring-0"
       {...others}
     />
     <label
