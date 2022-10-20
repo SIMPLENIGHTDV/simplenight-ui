@@ -16,7 +16,8 @@ const Template: ComponentStory<typeof SectionIcon> = (args) => <SectionIcon {...
 
 export const DefaultIcon = Template.bind({});
 export const CustomIcon = Template.bind({});
-export const CustomSizeAndColor = Template.bind({});
+export const CustomSize = Template.bind({});
+export const CustomColor = Template.bind({});
 
 DefaultIcon.args = {};
 
@@ -24,7 +25,12 @@ CustomIcon.args = {
   icon: <Calendar />,
 };
 
-CustomSizeAndColor.args = {
+CustomSize.args = {
+  sizeRem: 4,
+  icon: <Calendar />,
+};
+
+CustomColor.args = {
   sizeRem: 4,
   colorClass: 'bg-purple-500',
   icon: <Calendar />,
