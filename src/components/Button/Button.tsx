@@ -22,9 +22,9 @@ const defaultProps = {
 const Button = ({
   children,
   type = 'primary',
-  disabled,
-  height,
-  width,
+  disabled = false,
+  height = 'large',
+  width = '',
   onClick,
 }: IButton) => {
   const colors = useColorButton(type);
@@ -54,6 +54,7 @@ const Button = ({
         },
       )}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
