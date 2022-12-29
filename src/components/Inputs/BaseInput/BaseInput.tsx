@@ -5,6 +5,9 @@ interface BaseInputProps {
   size?: 'large' | 'small';
   placeholder?: string;
   state?: 'idle' | 'disabled' | 'error' | 'success';
+  value: string;
+  // eslint-disable-next-line no-unused-vars
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface ColorsMap {
@@ -22,12 +25,15 @@ const BaseInput = ({
   size = 'large',
   placeholder,
   state = 'idle',
+  value,
+  onChange,
 }: BaseInputProps) => {
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
 
+  const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {
-    idle: 'text-dark-1000 border-dark-300 focus:ring-0 focus:border-primary-1000',
+    idle: `text-dark-1000 ${idleBorderColor} focus:ring-0 focus:border-primary-1000`,
     error:
       'text-dark-1000 border-error-1000 focus:ring-0 focus:border-error-1000',
     success:
@@ -43,6 +49,8 @@ const BaseInput = ({
       placeholder={placeholder}
       className={`rounded w-full ${height} ${colors[state]} ${textSize}`}
       disabled={isDisabled}
+      value={value}
+      onChange={onChange}
     />
   );
 };
