@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import TextInput from '.';
 
-const title = 'SimplenightUI/';
+const title = 'SimplenightUI/Inputs/';
 
 export default {
-  title: `${title}Inputs/Text Input`,
+  title: `${title}Text Input`,
   component: TextInput,
 } as ComponentMeta<typeof TextInput>;
 
@@ -15,3 +15,6 @@ const Template: ComponentStory<typeof TextInput> = (args) => (
 );
 
 export const Default = Template.bind({});
+Default.args = {
+  placeholder: 'Placeholder',
+};

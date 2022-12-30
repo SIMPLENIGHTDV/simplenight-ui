@@ -1,22 +1,11 @@
 import React from 'react';
 import BaseInput from '../BaseInput';
+import { GeneralProps } from '../types';
 
-interface TextInputProps {
-  size?: 'large' | 'small';
-  placeholder?: string;
-  state?: 'idle' | 'disabled' | 'error' | 'success';
-  value: string;
-  // eslint-disable-next-line no-unused-vars
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const defaultProps = {
-  size: 'large',
-  placeholder: 'Placeholder',
-  state: 'idle',
-};
+type TextInputProps = GeneralProps;
 
 const TextInput = ({
+  name = '',
   size = 'large',
   placeholder,
   state = 'idle',
@@ -24,6 +13,7 @@ const TextInput = ({
   onChange,
 }: TextInputProps) => (
   <BaseInput
+    name={name}
     type="text"
     size={size}
     placeholder={placeholder}
@@ -32,7 +22,5 @@ const TextInput = ({
     onChange={onChange}
   />
 );
-
-TextInput.defaultProps = defaultProps;
 
 export default TextInput;

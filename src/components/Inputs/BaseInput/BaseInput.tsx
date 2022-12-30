@@ -1,26 +1,18 @@
 import React from 'react';
+import { GeneralProps } from '../types';
 
-interface BaseInputProps {
+interface BaseInputSpecificProps {
   type: 'text';
-  size?: 'large' | 'small';
-  placeholder?: string;
-  state?: 'idle' | 'disabled' | 'error' | 'success';
-  value: string;
-  // eslint-disable-next-line no-unused-vars
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+type BaseInputProps = BaseInputSpecificProps & GeneralProps;
 
 interface ColorsMap {
   [key: string]: string;
 }
 
-const defaultProps = {
-  size: 'large',
-  state: 'idle',
-  placeholder: 'Placeholder',
-};
-
 const BaseInput = ({
+  name = '',
   type,
   size = 'large',
   placeholder,
@@ -45,6 +37,7 @@ const BaseInput = ({
 
   return (
     <input
+      id={name}
       type={type}
       placeholder={placeholder}
       className={`rounded w-full ${height} ${colors[state]} ${textSize}`}
@@ -54,7 +47,5 @@ const BaseInput = ({
     />
   );
 };
-
-BaseInput.defaultProps = defaultProps;
 
 export default BaseInput;
