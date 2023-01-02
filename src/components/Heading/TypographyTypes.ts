@@ -1,0 +1,35 @@
+type ColorName = 'primary' | 'dark' | 'green';
+
+type ColorVariant =
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900'
+  | '1000';
+
+type ColorWithVariant = `${ColorName}-${ColorVariant}`;
+
+type ColorWithoutVariant = 'white' | 'transparent';
+
+export type TextColor = `text-${ColorWithVariant | ColorWithoutVariant}`;
+
+export interface HeadingProps {
+  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  children: string;
+  className?: string;
+  textColor?: TextColor;
+}
+
+export const headingClasses = {
+  h1: 'text-h1 lg:text-h1-lg font-semibold',
+  h2: 'text-h2 lg:text-h2-lg font-semibold',
+  h3: 'text-h3 lg:text-h3-lg font-semibold',
+  h4: 'text-h4 lg:text-h4-lg font-semibold',
+  h5: 'text-h5 lg:text-h5-lg font-semibold',
+  h6: 'text-h6 lg:text-h6-lg font-semibold',
+};
