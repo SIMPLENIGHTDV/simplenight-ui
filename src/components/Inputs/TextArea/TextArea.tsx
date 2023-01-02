@@ -1,22 +1,36 @@
 import React from 'react';
-import { GeneralProps } from '../types';
 
-type TextAreaProps = GeneralProps;
+type TextAreaProps = {
+  name?: string;
+  size?: 'large' | 'small';
+  placeholder?: string;
+  state?: 'idle' | 'disabled' | 'error' | 'success';
+  value: string;
+  onChange: (
+    // eslint-disable-next-line no-unused-vars
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => void;
+};
 
 interface ColorsMap {
   [key: string]: string;
 }
 
-const TextArea = (
-  {
-    name = '',
-    size = 'large',
-    placeholder,
-    state = 'idle',
-    value,
-    onChange,
-  }: TextAreaProps,
-) => {
+const defaultProps = {
+  name: '',
+  size: 'large',
+  state: 'idle',
+  placeholder: '',
+};
+
+const TextArea = ({
+  name = '',
+  size = 'large',
+  placeholder,
+  state = 'idle',
+  value,
+  onChange,
+}: TextAreaProps) => {
   const height = size === 'small' ? 'h-20' : 'h-24';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
@@ -39,5 +53,7 @@ const TextArea = (
     />
   );
 };
+
+TextArea.defaultProps = defaultProps;
 
 export default TextArea;
