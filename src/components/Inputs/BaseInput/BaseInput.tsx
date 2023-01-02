@@ -38,6 +38,7 @@ const BaseInput = ({
   return (
     <input
       id={name}
+      name={name}
       type={type}
       placeholder={placeholder}
       className={`rounded w-full ${height} ${colors[state]} ${textSize}`}
