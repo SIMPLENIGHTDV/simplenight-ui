@@ -2,10 +2,15 @@ import React from 'react';
 import { GeneralProps } from '../types';
 
 interface BaseInputSpecificProps {
-  type: 'text';
+  type: 'text' | 'password';
+  rightIcon?: boolean;
 }
 
 type BaseInputProps = BaseInputSpecificProps & GeneralProps;
+
+const defaultProps = {
+  rightIcon: false,
+};
 
 interface ColorsMap {
   [key: string]: string;
@@ -19,9 +24,11 @@ const BaseInput = ({
   state = 'idle',
   value,
   onChange,
+  rightIcon = false,
 }: BaseInputProps) => {
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
+  const rightPadding = rightIcon ? 'pr-11' : 'pr-3';
 
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {
@@ -41,12 +48,14 @@ const BaseInput = ({
       name={name}
       type={type}
       placeholder={placeholder}
-      className={`rounded w-full ${height} ${colors[state]} ${textSize}`}
+      className={`rounded w-full ${height} ${rightPadding} ${colors[state]} ${textSize}`}
       disabled={isDisabled}
       value={value}
       onChange={onChange}
     />
   );
 };
+
+BaseInput.defaultProps = defaultProps;
 
 export default BaseInput;
