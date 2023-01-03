@@ -3,6 +3,7 @@ import React from 'react';
 type TextAreaProps = {
   name?: string;
   size?: 'large' | 'small';
+  rows?:number
   placeholder?: string;
   state?: 'idle' | 'disabled' | 'error' | 'success';
   value: string;
@@ -19,6 +20,7 @@ interface ColorsMap {
 const defaultProps = {
   name: '',
   size: 'large',
+  rows: 1,
   state: 'idle',
   placeholder: '',
 };
@@ -26,12 +28,12 @@ const defaultProps = {
 const TextArea = ({
   name = '',
   size = 'large',
+  rows,
   placeholder,
   state = 'idle',
   value,
   onChange,
 }: TextAreaProps) => {
-  const height = size === 'small' ? 'h-20' : 'h-24';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {
@@ -44,12 +46,13 @@ const TextArea = ({
   };
   return (
     <textarea
+      rows={rows}
       name={name}
       id={name}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`rounded w-full resize-none ${height} ${colors[state]} ${textSize} `}
+      className={`rounded w-full resize-none  ${colors[state]} ${textSize} `}
     />
   );
 };
