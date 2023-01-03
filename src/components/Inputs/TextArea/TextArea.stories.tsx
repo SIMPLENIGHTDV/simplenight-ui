@@ -18,3 +18,19 @@ export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder',
 };
+export const Idle = Template.bind({});
+Idle.args = {
+  placeholder: 'Placeholder',
+  state: 'idle',
+};
+export const Error = Template.bind({});
+Error.args = {
+  placeholder: 'Placeholder',
+  state: 'error',
+};
+export const Success = Template.bind({});
+Success.args = {
+  placeholder: 'Placeholder',
+  value: 'Filled',
+  state: 'success',
+};
