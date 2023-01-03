@@ -7,5 +7,5 @@ export interface GeneralProps {
   state?: 'idle' | 'disabled' | 'error' | 'success';
   value: string;
   // eslint-disable-next-line no-unused-vars
-  onChange: (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
