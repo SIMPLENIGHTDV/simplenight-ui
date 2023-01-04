@@ -8,13 +8,10 @@ import { ColorsMap, SelectOption, SelectSpecificProps } from './SelectTypes';
 
 type SelectProps = Omit<GeneralProps, 'state'> & SelectSpecificProps;
 
-const handleSearch = () => {
-  console.log('hola');
-};
-
 const Select = ({ searchable = true, options, defaultValue, size = 'large', state = 'idle', placeholder = '' }:SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState(options);
 
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
@@ -34,6 +31,20 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
   const handleChange = (option: SelectOption) => {
     setSelectedOption(option);
     setOpen(false);
+  };
+
+  const handleSearch = (e: any) => {
+    setSelectedOption(e.target.value);
+    setOpen(true);
+
+    setSearchResults(
+      options.filter((option: SelectOption) => {
+        const matchValue = option.value
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+        return matchValue;
+      }),
+    );
   };
   return (
     <>
@@ -60,7 +71,7 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
         </button>
       </section>
       <section className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b `}>
-        {options.map((option: SelectOption) => (
+        {searchResults.map((option: SelectOption) => (
           <div
             key={`${option.value}`}
             onClick={() => handleChange(option)}
