@@ -7,9 +7,9 @@ import { ChevronDown, ChevronUp } from '../../../icons/regular';
 import { GeneralProps } from '../types';
 import { ColorsMap, SelectOption, SelectSpecificProps } from './SelectTypes';
 
-type SelectProps = Omit<GeneralProps, 'state'> & SelectSpecificProps;
+type SelectProps = Omit<GeneralProps, 'value'> & SelectSpecificProps;
 
-const Select = ({ searchable = true, options, defaultValue, size = 'large', state = 'idle', placeholder = '' }:SelectProps) => {
+const Select = ({ searchable = false, options, defaultValue, size = 'large', state = 'idle', placeholder = '' }:SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);
@@ -54,7 +54,10 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
         const matchValue = option.value
           .toLowerCase()
           .includes(e.target.value.toLowerCase());
-        return matchValue;
+        const matchLabel = option.label
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+        return matchValue || matchLabel;
       }),
     );
   };
@@ -62,7 +65,7 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
   return (
     <section ref={selectRef}>
       <section
-        className={`flex items-center  w-full border p-3 pr-2  ${height}  ${colors[state]} 
+        className={`flex items-center  w-full border pl-3 pr-2  ${height}  ${colors[state]} 
         ${open ? 'rounded-t' : 'rounded'}
         `}
         onClick={handleOpenClose}
