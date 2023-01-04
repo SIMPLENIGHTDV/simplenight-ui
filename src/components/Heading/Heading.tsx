@@ -1,5 +1,5 @@
 import React from 'react';
-import { headingClasses, HeadingProps } from './TypographyTypes';
+import { headingClasses, HeadingProps } from '../../types/typography';
 
 const Heading = ({
   tag: Tag,

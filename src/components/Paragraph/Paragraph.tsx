@@ -1,5 +1,5 @@
 import React from 'react';
-import { paragraphClasses, ParagraphProps } from './TypographyTypes';
+import { ParagraphProps, paragraphClasses } from '../../types/typography';
 
 const Paragraph = ({
   fontWeight,
@@ -9,14 +9,22 @@ const Paragraph = ({
   textColor = 'text-dark-1000',
 }: ParagraphProps) => {
   const paragraphClass = paragraphClasses[size];
+  let fontWeightClass;
+  switch (fontWeight) {
+    case 'medium':
+      fontWeightClass = 'font-medium';
+      break;
+    case 'semibold':
+      fontWeightClass = 'font-semibold';
+      break;
+    default:
+      fontWeightClass = 'font-normal';
+      break;
+  }
 
   return (
     <p
-      className={`${paragraphClass} ${textColor} ${className} ${
-        fontWeight === 'semibold' && 'font-semibold'
-      } ${fontWeight === 'normal' && 'font-normal'} ${
-        fontWeight === 'medium' && 'font-medium'
-      } font-lato m-0`}
+      className={`${paragraphClass} ${textColor} ${className} ${fontWeightClass} font-lato m-0`}
     >
       {children}
     </p>

@@ -26,3 +26,10 @@ HeadingPrimary.args = {
   children: 'Heading Test',
   textColor: 'text-primary-1000',
 };
+
+export const HeadingGreen = Template.bind({});
+HeadingGreen.args = {
+  tag: 'h3',
+  children: 'Heading Test',
+  textColor: 'text-green-1000',
+};

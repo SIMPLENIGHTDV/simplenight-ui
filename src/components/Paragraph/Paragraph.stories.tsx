@@ -2,8 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Paragraph from './Paragraph';
-
-const title = 'SimplenightUI/';
+import title from '../../constants/constants';
 
 export default {
   title: `${title}Paragraph`,
