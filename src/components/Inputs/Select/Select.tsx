@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useOnOutsideClick } from '../../../hooks';
 import { ChevronDown, ChevronUp } from '../../../icons/regular';
 
 import { GeneralProps } from '../types';
@@ -28,6 +29,17 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const selectRef = useRef<HTMLInputElement>(null);
+  useOnOutsideClick(selectRef, () => setOpen(false));
+
+  const handleOpenClose = () => {
+    const wasOpen = open;
+    setOpen(!open);
+    if (searchable && !wasOpen) searchInputRef?.current?.focus();
+    if (searchable && wasOpen) searchInputRef?.current?.blur();
+  };
+
   const handleChange = (option: SelectOption) => {
     setSelectedOption(option);
     setOpen(false);
@@ -46,19 +58,22 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
       }),
     );
   };
+
   return (
     <>
 
       <section
-        className={`flex items-center  w-full border p-3 pr-2 cursor-pointer ${height}  ${colors[state]} 
+        className={`flex items-center  w-full border p-3 pr-2  ${height}  ${colors[state]} 
         ${open ? 'rounded-t' : 'rounded'}
         `}
-        onClick={() => (!searchable ? setOpen(!open) : null)}
+        onClick={handleOpenClose}
+        ref={selectRef}
       >
         <input
           type="text"
-          className={`px-0 ${textSize} ${colors[state]} w-full h-full cursor-pointer border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent
+          className={`px-0 ${textSize} ${colors[state]} w-full h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent
          `}
+          ref={searchInputRef}
           placeholder={placeholder}
           value={selectedOption?.label}
           onChange={handleSearch}
