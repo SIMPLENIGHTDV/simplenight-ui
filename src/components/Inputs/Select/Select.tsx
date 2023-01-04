@@ -13,6 +13,7 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);
+  const isDisabled = state === 'disabled';
 
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
@@ -68,7 +69,7 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
         className={`flex items-center  w-full border pl-3 pr-2  ${height}  ${colors[state]} 
         ${open ? 'rounded-t' : 'rounded'}
         `}
-        onClick={handleOpenClose}
+        onClick={!isDisabled ? handleOpenClose : undefined}
       >
         <input
           type="text"

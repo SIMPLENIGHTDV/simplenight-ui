@@ -24,12 +24,28 @@ Default.args = {
   options: selectOptions,
   placeholder: 'Select a time',
   searchable: false,
-  defaultValue: selectOptions[0],
 };
 export const Searchable = Template.bind({});
 Searchable.args = {
   options: selectOptions,
   placeholder: 'Select a time',
   searchable: true,
-
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+  options: selectOptions,
+  defaultValue: selectOptions[0],
+  state: 'disabled',
+};
+export const Success = Template.bind({});
+Success.args = {
+  options: selectOptions,
+  defaultValue: selectOptions[0],
+  state: 'success',
+};
+export const Error = Template.bind({});
+Error.args = {
+  options: selectOptions,
+  placeholder: 'Select a time',
+  state: 'error',
 };
