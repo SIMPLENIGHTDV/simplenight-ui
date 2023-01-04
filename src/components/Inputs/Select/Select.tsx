@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from '../../../icons/regular';
 
 import { GeneralProps } from '../types';
-import { ColorsMap, SelectSpecificProps } from './SelectTypes';
+import { ColorsMap, SelectOption, SelectSpecificProps } from './SelectTypes';
 
 type SelectProps = Omit<GeneralProps, 'state'> & SelectSpecificProps;
 
@@ -9,46 +12,69 @@ const handleSearch = () => {
   console.log('hola');
 };
 
-const SelectInput = ({ size, value, state }:any) => {
+const Select = ({ searchable = true, options, defaultValue, size = 'large', state = 'idle', placeholder = '' }:SelectProps) => {
+  const [selectedOption, setSelectedOption] = useState(defaultValue);
+  const [open, setOpen] = useState(false);
+
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
+  const iconSize = size === 'large' ? 'w-5 h-5' : 'w-4 h-4';
 
-  const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
+  const idleBorderColor = selectedOption ? 'border-dark-400' : 'border-dark-300';
+  const openBorderColor = 'border-primary-1000';
   const colors: ColorsMap = {
-    idle: `text-dark-1000 ${idleBorderColor} `,
+    idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
     error:
       'text-dark-1000 border-error-1000 ',
     success:
       'text-dark-1000 border-green-1000',
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
-    open: 'text-dark-1000 border-primary-1000',
+  };
 
+  const handleChange = (option: SelectOption) => {
+    setSelectedOption(option);
+    setOpen(false);
   };
   return (
+    <>
 
-    <section
-      className={`flex items-center  rounded w-full border px-3 ${height}  ${colors[state]}`}
-    >
-      <input
-        type="text"
-        className={`px-0 ${textSize} ${colors[state]} w-full h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
-        placeholder="placeholder"
-        value={value}
-        onChange={handleSearch}
-        /* disabled={!searchable} */
-      />
-      <button className="" type="button">
-        a
-        {' '}
-        {/* <ChevronDownIcon className="text-dark-700" /> */}
-      </button>
-    </section>
+      <section
+        className={`flex items-center  w-full border p-3 pr-2 cursor-pointer ${height}  ${colors[state]} 
+        ${open ? 'rounded-t' : 'rounded'}
+        `}
+        onClick={() => (!searchable ? setOpen(!open) : null)}
+      >
+        <input
+          type="text"
+          className={`px-0 ${textSize} ${colors[state]} w-full h-full cursor-pointer border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent
+         `}
+          placeholder={placeholder}
+          value={selectedOption?.label}
+          onChange={handleSearch}
+          disabled={!searchable}
+        />
+        <button type="button">
+          {open
+            ? <ChevronUp className={`${iconSize} text-dark-700`} />
+            : <ChevronDown className={`${iconSize} text-dark-700`} />}
+        </button>
+      </section>
+      <section className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b `}>
+        {options.map((option: SelectOption) => (
+          <div
+            key={`${option.value}`}
+            onClick={() => handleChange(option)}
+            className="cursor-pointer select-none p-2 border-solid border-b border-dark-200 hover:bg-dark-100 last:border-b-0 "
+          >
+
+            {option.label}
+
+          </div>
+        ))}
+      </section>
+    </>
   );
 };
-
-const Select = ({ searchable = false, options, selectedOption, size = 'large', value = '', state = 'idle' }:SelectProps) => (
-  <div><SelectInput searchable={searchable} value={value} state={state} size={size} /></div>
-);
 
 Select.defaultProps = { searchable: false, size: 'large' };
 export default Select;
