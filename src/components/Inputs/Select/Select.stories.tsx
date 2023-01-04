@@ -22,5 +22,6 @@ const selectOptions = [
 export const Default = Template.bind({});
 Default.args = {
   options: selectOptions,
-  selectedOption: selectOptions[0],
+  defaultValue: selectOptions[0],
+  placeholder: 'Select a time',
 };
