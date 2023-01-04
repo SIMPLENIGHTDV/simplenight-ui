@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useOnOutsideClick } from '../../../hooks';
 import { ChevronDown, ChevronUp } from '../../../icons/regular';
 
@@ -60,14 +60,12 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
   };
 
   return (
-    <>
-
+    <section ref={selectRef}>
       <section
         className={`flex items-center  w-full border p-3 pr-2  ${height}  ${colors[state]} 
         ${open ? 'rounded-t' : 'rounded'}
         `}
         onClick={handleOpenClose}
-        ref={selectRef}
       >
         <input
           type="text"
@@ -98,7 +96,7 @@ const Select = ({ searchable = true, options, defaultValue, size = 'large', stat
           </div>
         ))}
       </section>
-    </>
+    </section>
   );
 };
 
