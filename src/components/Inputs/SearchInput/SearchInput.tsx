@@ -25,7 +25,7 @@ const SearchInput = ({
   const notDisabled = state !== 'disabled';
   const showClearButton = hasValue && notDisabled;
 
-  const idleColor = value ? 'border-dark-1000' : 'border-dark-700';
+  const idleColor = value ? 'text-dark-1000' : 'text-dark-700';
 
   const colors: ColorsMap = {
     idle: `${idleColor}`,
