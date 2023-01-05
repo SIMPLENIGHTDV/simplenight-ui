@@ -18,10 +18,10 @@ export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder',
 };
-export const Idle = Template.bind({});
-Idle.args = {
+export const Disabled = Template.bind({});
+Disabled.args = {
   placeholder: 'Placeholder',
-  state: 'idle',
+  state: 'disabled',
 };
 export const Error = Template.bind({});
 Error.args = {
