@@ -7,6 +7,8 @@ export interface SelectSpecificProps {
     defaultValue?:SelectOption;
     searchable?:boolean;
     size?: 'large' | 'small';
+    // eslint-disable-next-line no-unused-vars
+    onChange: (option: SelectOption) => void;
   }
 export interface ColorsMap {
     [key: string]: string;
