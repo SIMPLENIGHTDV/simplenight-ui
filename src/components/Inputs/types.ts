@@ -9,3 +9,7 @@ export interface GeneralProps {
   // eslint-disable-next-line no-unused-vars
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface ColorsMap {
+  [key: string]: string;
+}
