@@ -1,7 +1,8 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import './radio.css';
+import classNames from 'classnames';
 
 interface IRadio {
   value?: string;
@@ -10,30 +11,27 @@ interface IRadio {
   checked?: boolean;
 }
 
-const Radio = ({
-  value,
-  children,
-  onChange,
-  checked = false,
-  ...others
-}: IRadio) => (
-  <section className="flex items-center">
+const Radio = ({ value, onChange, checked, children, ...others }: IRadio) => (
+  <label htmlFor={value} className="radio-label text-dark-800 text-sm">
     <input
+      {...others}
       id={value}
+      className="radio-input"
       type="radio"
       value={value}
-      onChange={() => onChange?.(value)}
+      onChange={onChange}
       checked={checked}
-      className="input-radio border border-dark-30 checked:bg-primary-1000 checked:before:bg-primary-1000  focus:ring-0"
-      {...others}
     />
-    <label
-      htmlFor={value}
-      className="block ml-3 text-sm font-normal leading-[22px] text-dark-1000"
+    <span
+      className={classNames('custom-radio', {
+        'border-primary-1000': checked,
+        'border-dark-300': !checked,
+      })}
     >
-      {children}
-    </label>
-  </section>
+      <span className="custom-radio__check bg-primary-1000" />
+    </span>
+    <span className="radio-content">{children}</span>
+  </label>
 );
 
 export default Radio;

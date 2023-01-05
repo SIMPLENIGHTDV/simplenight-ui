@@ -22,12 +22,12 @@ export const HelloRadio = Template.bind({});
 export const CheckedByValue = TemplateCheckedByValue.bind({});
 HelloRadio.args = {
   value: 'hello',
-  children: 'Hello',
+  children: 'Hello Radio',
   onChange: (value) => {},
 };
 
 CheckedByValue.args = {
   value: 'hello',
-  children: 'Hello',
+  children: 'Hello Checked',
   onChange: (value) => {},
 };
