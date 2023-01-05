@@ -9,7 +9,7 @@ import { ColorsMap, SelectOption, SelectSpecificProps } from './SelectTypes';
 
 type SelectProps = Omit<GeneralProps, 'value'> & SelectSpecificProps;
 
-const Select = ({ searchable = false, options, defaultValue, size = 'large', state = 'idle', placeholder = '' }:SelectProps) => {
+const Select = ({ searchable = false, options, defaultValue, size = 'large', state = 'idle', placeholder = '', onChange }:SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);
@@ -24,9 +24,9 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
   const colors: ColorsMap = {
     idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
     error:
-      'text-dark-1000 border-error-1000 ',
+      `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
     success:
-      'text-dark-1000 border-green-1000',
+      `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
@@ -44,6 +44,7 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
   const handleChange = (option: SelectOption) => {
     setSelectedOption(option);
     setOpen(false);
+    onChange(option);
   };
 
   const handleSearch = (e: any) => {
@@ -79,7 +80,7 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
           placeholder={placeholder}
           value={selectedOption?.label}
           onChange={handleSearch}
-          disabled={!searchable}
+          disabled={!searchable || isDisabled}
         />
         <button type="button">
           {open
