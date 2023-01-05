@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BaseInput from '../BaseInput';
 import { GeneralProps } from '../types';
 import Eye from '../../../icons/regular/Eye';
+import EyeCross from '../../../icons/regular/EyeCross';
 
 type PasswordInputProps = GeneralProps;
 
@@ -20,7 +21,7 @@ const PasswordInput = ({
 
   const type = show ? 'text' : 'password';
 
-  const iconSize = size === 'large' ? 'w-5 h-5' : 'w-3.5 h-3.5';
+  const iconSize = size === 'large' ? 'w-5 h-5' : 'w-4 h-4';
 
   return (
     <section className="relative flex items-center">
@@ -34,7 +35,8 @@ const PasswordInput = ({
         rightPadding="pr-12"
       />
       <button className="absolute right-4" onClick={handleShow} type="button">
-        <Eye className={`${iconSize} text-dark-1000`} />
+        {!show && <Eye className={`${iconSize} text-dark-1000`} />}
+        {show && <EyeCross className={`${iconSize} text-dark-1000`} />}
       </button>
     </section>
   );
