@@ -46,8 +46,8 @@ const SearchInput = ({
         state={state}
         value={value}
         onChange={onChange}
-        rightIcon
-        leftIcon
+        rightPadding="pr-11"
+        leftPadding="pl-11"
       />
       {showClearButton && (
         <button className="absolute right-3.5" onClick={onClear} type="button">

@@ -3,15 +3,15 @@ import { ColorsMap, GeneralProps } from '../types';
 
 interface BaseInputSpecificProps {
   type: 'text' | 'password';
-  rightIcon?: boolean;
-  leftIcon?: boolean;
+  rightPadding?: string;
+  leftPadding?: string;
 }
 
 type BaseInputProps = BaseInputSpecificProps & GeneralProps;
 
 const defaultProps = {
-  rightIcon: false,
-  leftIcon: false,
+  rightPadding: 'pr-3',
+  leftPadding: 'pr-3',
 };
 
 const BaseInput = ({
@@ -22,13 +22,11 @@ const BaseInput = ({
   state = 'idle',
   value,
   onChange,
-  rightIcon = false,
-  leftIcon = false,
+  rightPadding = 'pr-3',
+  leftPadding = 'pr-3',
 }: BaseInputProps) => {
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
-  const rightPadding = rightIcon ? 'pr-11' : 'pr-3';
-  const leftPadding = leftIcon ? 'pl-10' : 'pl-3';
 
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {

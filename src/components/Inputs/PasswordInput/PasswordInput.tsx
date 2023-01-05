@@ -31,7 +31,7 @@ const PasswordInput = ({
         state={state}
         value={value}
         onChange={onChange}
-        rightIcon
+        rightPadding="pr-12"
       />
       <button className="absolute right-4" onClick={handleShow} type="button">
         <Eye className={`${iconSize} text-dark-1000`} />
