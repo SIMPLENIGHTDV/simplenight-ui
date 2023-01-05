@@ -8,20 +8,11 @@ import ModalHeader from './components/ModalHeader';
 interface ModalProps {
   open: boolean;
   onClose: (event?: MouseEvent<HTMLElement>) => void;
-  title?: string;
-  headerAction?: ReactNode;
-  children?: ReactNode;
+  children?: ReactNode | ReactNode[];
   className?: string;
 }
 
-const Modal = ({
-  open,
-  onClose,
-  title,
-  headerAction,
-  children,
-  className = '',
-}: ModalProps) => (
+const Modal = ({ open, onClose, children, className = '' }: ModalProps) => (
   <Transition.Root show={open}>
     <Dialog
       open
@@ -37,7 +28,11 @@ const Modal = ({
         leaveFrom="lg:opacity-100"
         leaveTo="lg:opacity-0"
       >
-        <div className="fixed inset-0 lg:bg-black/80" aria-hidden="true" onClick={onClose} />
+        <div
+          className="fixed inset-0 lg:bg-black/80"
+          aria-hidden="true"
+          onClick={onClose}
+        />
       </Transition.Child>
       <Transition.Child
         enter="transition-transform duration-500 lg:transition-opacity lg:duration-200"
@@ -48,9 +43,8 @@ const Modal = ({
         leaveTo="translate-y-full lg:opacity-0 lg:translate-y-0"
       >
         <section className="lg:h-[660px] lg:w-[842px] lg:rounded-4 lg:shadow-container lg:overflow-hidden">
-          <Dialog.Panel className="flex flex-col items-stretch lg:h-[660px] h-screen w-screen lg:w-[842px]">
-            {title && <ModalHeader onClose={onClose} title={title} headerAction={headerAction} />}
-            <section className="bg-white h-screen overflow-y-scroll">{children}</section>
+          <Dialog.Panel className="bg-white flex flex-col items-stretch lg:h-[660px] h-screen w-screen lg:w-[842px]">
+            {children}
           </Dialog.Panel>
         </section>
       </Transition.Child>
