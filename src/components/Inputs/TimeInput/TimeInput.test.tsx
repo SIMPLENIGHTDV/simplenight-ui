@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Select from './Select';
+import TimeInput from './TimeInput';
 
 const selectOptions = [
   { value: '0200', label: '02:00 AM' },
@@ -10,8 +10,8 @@ const selectOptions = [
   { value: '0600', label: '06:00 PM' },
 ];
 
-describe('Select', () => {
-  test('Renders the select input component', () => {
-    render(<Select options={selectOptions} onChange={(e) => e} />);
+describe('TimeInput', () => {
+  test('Renders the time input component', () => {
+    render(<TimeInput options={selectOptions} onChange={(e) => e} />);
   });
 });
