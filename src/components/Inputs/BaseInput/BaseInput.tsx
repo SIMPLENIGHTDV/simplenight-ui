@@ -1,20 +1,18 @@
 import React from 'react';
-import { GeneralProps } from '../types';
+import { ColorsMap, GeneralProps } from '../types';
 
 interface BaseInputSpecificProps {
   type: 'text' | 'password';
   rightIcon?: boolean;
+  leftIcon?: boolean;
 }
 
 type BaseInputProps = BaseInputSpecificProps & GeneralProps;
 
 const defaultProps = {
   rightIcon: false,
+  leftIcon: false,
 };
-
-interface ColorsMap {
-  [key: string]: string;
-}
 
 const BaseInput = ({
   name = '',
@@ -25,10 +23,12 @@ const BaseInput = ({
   value,
   onChange,
   rightIcon = false,
+  leftIcon = false,
 }: BaseInputProps) => {
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
   const rightPadding = rightIcon ? 'pr-11' : 'pr-3';
+  const leftPadding = leftIcon ? 'pl-10' : 'pl-3';
 
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {
@@ -48,7 +48,7 @@ const BaseInput = ({
       name={name}
       type={type}
       placeholder={placeholder}
-      className={`rounded w-full ${height} ${rightPadding} ${colors[state]} ${textSize}`}
+      className={`rounded w-full ${height} ${leftPadding} ${rightPadding} ${colors[state]} ${textSize}`}
       disabled={isDisabled}
       value={value}
       onChange={onChange}
