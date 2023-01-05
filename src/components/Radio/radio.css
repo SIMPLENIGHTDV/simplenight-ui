@@ -1,9 +1,8 @@
 .radio-label {
-    font-weight: 400;
-    margin-right: 7px;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     display: flex;
+    align-items: center;
 }
 
 .radio-input {
@@ -21,10 +20,8 @@
 
 .custom-radio {
     left: -8px;
-    top: 6px;
+    top: 0;
     cursor: pointer;
-    width: 19px;
-    height: 19px;
     border-width: 1px;
     border-radius: 50%;
     display: inline-block;
@@ -32,8 +29,6 @@
 }
 
 .custom-radio__check {
-    width: 10px;
-    height: 10px;
     position: absolute;
     border-radius: 50%;
     top: 50%;
@@ -45,5 +40,4 @@
 
 .radio-content {
     display: block;
-    line-height: 30px;
 }
