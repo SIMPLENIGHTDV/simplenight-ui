@@ -6,7 +6,7 @@ import { ChevronDown, ChevronUp } from '../../../icons/regular';
 
 import { ColorsMap, GeneralProps, SelectOption, SelectSpecificProps } from '../types';
 
-type SelectProps = Omit<GeneralProps, 'value'> & Omit<GeneralProps, 'onChange'>& SelectSpecificProps;
+type SelectProps = Omit<GeneralProps, 'value'|'onChange'> & SelectSpecificProps;
 
 const Select = ({ searchable = false, options, defaultValue, size = 'large', state = 'idle', placeholder = '', onChange }:SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
