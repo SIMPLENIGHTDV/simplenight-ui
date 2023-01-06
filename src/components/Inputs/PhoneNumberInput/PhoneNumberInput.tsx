@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
+import './PhoneNumberInput.css';
 import { allCountries, iso2Lookup } from 'country-telephone-data';
 import { ColorsMap, GeneralProps } from '../types';
 import { ChevronDown, ChevronUp } from '../../../icons';
@@ -13,8 +14,9 @@ import { CountryCodeOption } from './PhoneNumberInputTypes';
     onChange: (value: string) => void;
   }
 
-type PhoneNumberInputProps = GeneralProps & PhoneNumberInputSpecificProps
+type PhoneNumberInputProps = Omit<GeneralProps, 'value'> & PhoneNumberInputSpecificProps
 const PhoneNumberInput = ({
+  name,
   size = 'large',
   state = 'idle',
   defaultCode = 'us',
@@ -23,11 +25,13 @@ const PhoneNumberInput = ({
   placeholder,
 }:PhoneNumberInputProps) => {
   const [open, setOpen] = useState(false);
+  const [phoneInputIsFocused, setPhoneInputIsFocused] = useState(false);
 
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
   const iconSize = size === 'large' ? 'w-6 h-6' : 'w-4 h-4';
   const isDisabled = state === 'disabled';
+  const isFocused = open || phoneInputIsFocused;
 
   const getDefaultCountryCode = (defaultIso2Code:string) => {
     const countryIndex = iso2Lookup[defaultIso2Code];
@@ -39,13 +43,13 @@ const PhoneNumberInput = ({
   const [phoneNumber, setPhoneNumber] = useState(defaultPhoneNumber || '');
 
   const idleBorderColor = countryCode && phoneNumber ? 'border-dark-400' : 'border-dark-300';
-  const openBorderColor = 'border-primary-1000';
+  const focusBorderColor = 'border-primary-1000';
   const colors: ColorsMap = {
-    idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
+    idle: `text-dark-1000 ${isFocused ? focusBorderColor : idleBorderColor} `,
     error:
-      `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
+      `text-dark-1000   ${isFocused ? focusBorderColor : 'border-error-1000'} `,
     success:
-      `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
+      `text-dark-1000  ${isFocused ? focusBorderColor : 'border-green-1000'}`,
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
@@ -86,12 +90,16 @@ const PhoneNumberInput = ({
           </span>
         </section>
         <input
-          type="text"
-          className={`px-0 ${textSize} ${colors[state]} w-full h-full bg-transparent border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent
-        `}
+          type="number"
+          className={`px-0 ${textSize} ${colors[state]} w-full h-full bg-transparent border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
           placeholder={placeholder}
           onChange={handleChangePhone}
           disabled={isDisabled}
+          name={name}
+          id={name}
+          onFocus={() => setPhoneInputIsFocused(true)}
+          onBlur={() => setPhoneInputIsFocused(false)}
+          value={phoneNumber}
         />
 
       </section>

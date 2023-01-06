@@ -13,11 +13,22 @@ const Template: ComponentStory<typeof PhoneNumberInput> = (args) => (
   <PhoneNumberInput {...args} />
 );
 
-const handleChange = (e:string) => {
-  console.log(e);
-};
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder',
-  onChange: handleChange,
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+  placeholder: 'Placeholder',
+  state: 'disabled',
+};
+export const Error = Template.bind({});
+Error.args = {
+  placeholder: 'Placeholder',
+  state: 'error',
+};
+export const Success = Template.bind({});
+Success.args = {
+  placeholder: 'Placeholder',
+  state: 'success',
 };
