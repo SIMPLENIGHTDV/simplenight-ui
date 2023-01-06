@@ -4,11 +4,26 @@ import React, { useRef, useState } from 'react';
 import { useOnOutsideClick } from '../../../hooks';
 import { ChevronDown, ChevronUp } from '../../../icons/regular';
 
-import { ColorsMap, GeneralProps, SelectOption, SelectSpecificProps } from '../types';
+import {
+  ColorsMap,
+  GeneralProps,
+  SelectOption,
+  SelectSpecificProps,
+} from '../types';
 
-type SelectProps = Omit<GeneralProps, 'value'|'onChange'> & SelectSpecificProps;
+type SelectProps = Omit<GeneralProps, 'value' | 'onChange'> &
+  SelectSpecificProps;
 
-const Select = ({ searchable = false, options, defaultValue, size = 'large', state = 'idle', placeholder = '', onChange }:SelectProps) => {
+const Select = ({
+  name,
+  searchable = false,
+  options,
+  defaultValue,
+  size = 'large',
+  state = 'idle',
+  placeholder = '',
+  onChange,
+}: SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);
@@ -18,14 +33,14 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
   const iconSize = size === 'large' ? 'w-5 h-5' : 'w-4 h-4';
 
-  const idleBorderColor = selectedOption ? 'border-dark-400' : 'border-dark-300';
+  const idleBorderColor = selectedOption
+    ? 'border-dark-400'
+    : 'border-dark-300';
   const openBorderColor = 'border-primary-1000';
   const colors: ColorsMap = {
     idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
-    error:
-      `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
-    success:
-      `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
+    error: `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
+    success: `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
@@ -66,7 +81,9 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
   return (
     <section ref={selectRef}>
       <section
-        className={`flex items-center  w-full border pl-3 pr-2  ${height}  ${colors[state]} 
+        className={`flex items-center  w-full border pl-3 pr-2  ${height}  ${
+          colors[state]
+        } 
         ${open ? 'rounded-t' : 'rounded'}
         `}
         onClick={!isDisabled ? handleOpenClose : undefined}
@@ -80,23 +97,29 @@ const Select = ({ searchable = false, options, defaultValue, size = 'large', sta
           value={selectedOption?.label}
           onChange={handleSearch}
           disabled={!searchable || isDisabled}
+          id={name}
+          name={name}
         />
         <button type="button">
-          {open
-            ? <ChevronUp className={`${iconSize} text-dark-700`} />
-            : <ChevronDown className={`${iconSize} text-dark-700`} />}
+          {open ? (
+            <ChevronUp className={`${iconSize} text-dark-700`} />
+          ) : (
+            <ChevronDown className={`${iconSize} text-dark-700`} />
+          )}
         </button>
       </section>
-      <section className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b `}>
+      <section
+        className={`${
+          !open ? 'hidden ' : ''
+        } border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto `}
+      >
         {searchResults.map((option: SelectOption) => (
           <div
             key={`${option.value}`}
             onClick={() => handleChange(option)}
-            className="cursor-pointer select-none p-2 border-solid border-b border-dark-200 hover:bg-dark-100 last:border-b-0 "
+            className="cursor-pointer  select-none p-2 border-solid border-b border-dark-200 hover:bg-dark-100 last:border-b-0 "
           >
-
             {option.label}
-
           </div>
         ))}
       </section>
