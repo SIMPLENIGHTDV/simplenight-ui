@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Switch } from '@headlessui/react';
-import classNames from 'classnames';
 import React from 'react';
 
 interface ToggleProps {
@@ -27,6 +26,12 @@ const Toggle = ({
   const dotSize = isSmall ? 'h-2 w-2' : 'h-3 w-3';
   const dotTranslate = isSmall ? 'translate-x-2' : 'translate-x-4';
   const textSize = isSmall ? 'text-xs mt-[1px]' : 'text-sm';
+  const dotClass = `${dotSize} pointer-events-none inline-block rounded-full transform ring-0 transition ease-in-out duration-20 ${
+    checked ? `${dotTranslate} bg-white` : 'translate-x-0 bg-dark-800'
+  }`;
+  const toggleClass = `${sizeClass} relative inline-flex flex-shrink-0 border border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none ${
+    checked ? 'bg-primary-1000' : 'border border-dark-300'
+  }`;
   return (
     <label htmlFor={id} className="flex items-center gap-3 cursor-pointer">
       <section className="relative">
@@ -34,25 +39,10 @@ const Toggle = ({
           id={id}
           checked={checked}
           onChange={() => onChange(!checked)}
-          className={classNames(
-            `${sizeClass} relative inline-flex flex-shrink-0 border border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none`,
-            {
-              'bg-primary-1000': checked,
-              'border border-dark-300': !checked,
-            },
-          )}
+          className={toggleClass}
         >
           <span className="sr-only" />
-          <span
-            aria-hidden="true"
-            className={classNames(
-              `${dotSize} pointer-events-none inline-block rounded-full transform ring-0 transition ease-in-out duration-20`,
-              {
-                [`${dotTranslate} bg-white`]: checked,
-                'translate-x-0 bg-dark-800': !checked,
-              },
-            )}
-          />
+          <span aria-hidden="true" className={dotClass} />
         </Switch>
       </section>
       <span className={`${textSize} text-dark-1000`}>{children}</span>
