@@ -7,10 +7,10 @@ interface ICheckbox {
   value?: string;
   checked?: boolean;
   name?: string;
-  onChange?: (value: any) => void;
+  onChange: (value: any) => void;
   children?: React.ReactNode;
-  className?: string;
-  size?: 'small' | 'large';
+  className: string;
+  size: 'small' | 'large';
 }
 
 const Checkbox = ({

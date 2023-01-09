@@ -13,16 +13,18 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
 
 export const HelloCheckbox = Template.bind({});
-export const DefaultChecked = Template.bind({});
+export const CheckedSmall = Template.bind({});
 HelloCheckbox.args = {
   name: 'hello',
   value: 'hello',
   children: 'Hello',
+  size: 'large',
 };
 
-DefaultChecked.args = {
+CheckedSmall.args = {
   name: 'hello',
   value: 'hello',
   children: 'Hello',
   checked: true,
+  size: 'small',
 };
