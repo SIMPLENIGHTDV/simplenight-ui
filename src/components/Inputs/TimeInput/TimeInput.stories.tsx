@@ -1,16 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Select from '.';
+import TimeInput from '.';
 
 const title = 'SimplenightUI/Inputs/';
 
 export default {
-  title: `${title}Select`,
-  component: Select,
-} as ComponentMeta<typeof Select>;
+  title: `${title}Time Input`,
+  component: TimeInput,
+} as ComponentMeta<typeof TimeInput>;
 
-const Template: ComponentStory<typeof Select> = (args) => (
-  <Select {...args} />
+const Template: ComponentStory<typeof TimeInput> = (args) => (
+  <TimeInput {...args} />
 );
 
 const selectOptions = [
@@ -18,19 +18,12 @@ const selectOptions = [
   { value: '0300', label: '03:00 AM' },
   { value: '0400', label: '04:00 AM' },
   { value: '0500', label: '05:00 AM' },
-  { value: '0600', label: '06:00 PM' }];
-
+  { value: '0600', label: '06:00 PM' },
+];
 export const Default = Template.bind({});
 Default.args = {
   options: selectOptions,
   placeholder: 'Select a time',
-  searchable: false,
-};
-export const Searchable = Template.bind({});
-Searchable.args = {
-  options: selectOptions,
-  placeholder: 'Select a time',
-  searchable: true,
 };
 export const Disabled = Template.bind({});
 Disabled.args = {

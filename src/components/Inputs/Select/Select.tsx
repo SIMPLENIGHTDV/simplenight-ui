@@ -4,18 +4,14 @@ import React, { useRef, useState } from 'react';
 import { useOnOutsideClick } from '../../../hooks';
 import { ChevronDown, ChevronUp } from '../../../icons/regular';
 
-import {
-  ColorsMap,
-  GeneralProps,
-  SelectOption,
-  SelectSpecificProps,
-} from '../types';
+import { ColorsMap, SelectOption, SelectProps } from '../types';
 
-type SelectProps = Omit<GeneralProps, 'value' | 'onChange'> &
-  SelectSpecificProps;
+interface SelectSpecificProps extends SelectProps {
+  leftPadding?: string;
+  hideArrow?: boolean;
+}
 
 const Select = ({
-  name,
   searchable = false,
   options,
   defaultValue,
@@ -23,7 +19,10 @@ const Select = ({
   state = 'idle',
   placeholder = '',
   onChange,
-}: SelectProps) => {
+  leftPadding = 'pl-0',
+  hideArrow = false,
+}: SelectSpecificProps) => {
+
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);
@@ -39,8 +38,8 @@ const Select = ({
   const openBorderColor = 'border-primary-1000';
   const colors: ColorsMap = {
     idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
-    error: `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
-    success: `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
+    error: 'text-dark-1000 border-error-1000',
+    success: 'text-dark-1000 border-green-1000',
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
@@ -90,34 +89,33 @@ const Select = ({
       >
         <input
           type="text"
-          className={`px-0 ${textSize} ${colors[state]} w-full h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent
-         `}
+          className={` ${leftPadding} ${textSize} ${colors[state]} w-full h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
           ref={searchInputRef}
           placeholder={placeholder}
           value={selectedOption?.label}
           onChange={handleSearch}
           disabled={!searchable || isDisabled}
-          id={name}
-          name={name}
         />
-        <button type="button">
-          {open ? (
-            <ChevronUp className={`${iconSize} text-dark-700`} />
-          ) : (
-            <ChevronDown className={`${iconSize} text-dark-700`} />
-          )}
-        </button>
+        {!hideArrow && (
+          <button type="button">
+            {open ? (
+              <ChevronUp className={`${iconSize} text-dark-700`} />
+            ) : (
+              <ChevronDown className={`${iconSize} text-dark-700`} />
+            )}
+          </button>
+        )}
       </section>
       <section
-        className={`${
-          !open ? 'hidden ' : ''
-        } border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto `}
+        className={`${!open ? 'hidden ' : ''} border ${
+          colors[state]
+        }  border-t-0 rounded-b `}
       >
         {searchResults.map((option: SelectOption) => (
           <div
             key={`${option.value}`}
             onClick={() => handleChange(option)}
-            className="cursor-pointer  select-none p-2 border-solid border-b border-dark-200 hover:bg-dark-100 last:border-b-0 "
+            className="p-2 border-b border-solid cursor-pointer select-none border-dark-200 hover:bg-dark-100 last:border-b-0 "
           >
             {option.label}
           </div>
@@ -127,5 +125,5 @@ const Select = ({
   );
 };
 
-Select.defaultProps = { searchable: false, size: 'large' };
+Select.defaultProps = { leftPadding: 'pl-0', hideArrow: false };
 export default Select;
