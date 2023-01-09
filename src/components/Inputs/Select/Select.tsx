@@ -22,7 +22,6 @@ const Select = ({
   leftPadding = 'pl-0',
   hideArrow = false,
 }: SelectSpecificProps) => {
-const Select = ({ searchable = false, options, defaultValue, size = 'large', state = 'idle', placeholder = '', onChange }:SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);

@@ -36,7 +36,7 @@ const PhoneNumberInput = ({
   const isDisabled = state === 'disabled';
   const isFocused = open || phoneInputIsFocused;
 
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
   useOnOutsideClick(inputRef, () => setOpen(false));
 
   const getDefaultCountryCode = (defaultIso2Code:string) => {

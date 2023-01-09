@@ -12,7 +12,7 @@ export const getPhoneNumberMask = (countryCode:CountryCodeOption) => {
 
 export const formatDialCode = (countryCode:CountryCodeOption) => {
   const { format, dialCode } = countryCode;
-  if (!format) return dialCode;
+  if (!format) return `+${dialCode}`;
   let formattedDialCode = format;
   for (let i = 0; i < dialCode.length; i += 1) {
     formattedDialCode = formattedDialCode.replace('.', dialCode[i]);
