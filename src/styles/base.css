@@ -18,7 +18,7 @@ a {
 }
 
 label {
-  @apply font-lato font-semibold text-sm leading-4 text-dark-800;
+  @apply text-sm font-semibold leading-4 font-lato text-dark-800;
 }
 
 /* Range Slider */
@@ -30,4 +30,10 @@ input[type='range']::-webkit-slider-thumb {
   border: 1px solid;
   -webkit-appearance: none;
   @apply bg-primary-200 border-primary-600;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
