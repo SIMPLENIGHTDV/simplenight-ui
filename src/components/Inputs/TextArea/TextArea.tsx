@@ -44,6 +44,8 @@ const TextArea = ({
       'text-dark-1000 border-green-1000 focus:ring-0 focus:border-green-1000',
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
+
+  const isDisabled = state === 'disabled';
   return (
     <textarea
       rows={rows}
@@ -53,6 +55,7 @@ const TextArea = ({
       value={value}
       onChange={onChange}
       className={`rounded w-full resize-none  ${colors[state]} ${textSize} `}
+      disabled={isDisabled}
     />
   );
 };

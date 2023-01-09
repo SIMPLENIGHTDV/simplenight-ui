@@ -14,6 +14,7 @@ export interface SelectOption {
   value: string;
   label: string;
 }
+
 export interface SelectSpecificProps {
   options: SelectOption[];
   defaultValue?: SelectOption;
@@ -24,6 +25,7 @@ export interface SelectSpecificProps {
 
 export type SelectProps = Omit<GeneralProps, 'value' | 'onChange'> &
   SelectSpecificProps;
+
 export interface ColorsMap {
   [key: string]: string;
 }
