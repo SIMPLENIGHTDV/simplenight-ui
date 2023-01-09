@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { Fragment, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { allCountries, iso2Lookup } from 'country-telephone-data';
 import InputMask from 'react-input-mask';
@@ -8,6 +8,7 @@ import { ColorsMap, GeneralProps } from '../types';
 import { ChevronDown, ChevronUp } from '../../../icons';
 import { CountryCodeOption } from './PhoneNumberInputTypes';
 import { formatDialCode, getPhoneNumberMask, removeFormatFromPhoneNumber } from './helpers';
+import { useOnOutsideClick } from '../../..';
 
   interface PhoneNumberInputSpecificProps {
     defaultPhoneNumber?: string;
@@ -34,6 +35,9 @@ const PhoneNumberInput = ({
   const iconSize = size === 'large' ? 'w-6 h-6' : 'w-4 h-4';
   const isDisabled = state === 'disabled';
   const isFocused = open || phoneInputIsFocused;
+
+  const inputRef = useRef<HTMLInputElement>();
+  useOnOutsideClick(inputRef, () => setOpen(false));
 
   const getDefaultCountryCode = (defaultIso2Code:string) => {
     const countryIndex = iso2Lookup[defaultIso2Code];
@@ -84,11 +88,10 @@ const PhoneNumberInput = ({
       phone_number: removeFormatFromPhoneNumber(phone) }));
   };
   return (
-    <>
+    <section ref={inputRef}>
       <section
-        className={`flex items-center  w-full border px-3   ${height} ${colors[state]} 
-      ${open ? 'rounded-t' : 'rounded'}
-      `}
+        className={`flex items-center  w-full border px-3  
+        ${height} ${colors[state]} ${open ? 'rounded-t' : 'rounded'}`}
       >
         <section className="flex items-center " onClick={() => (!isDisabled ? setOpen(!open) : undefined)}>
           <input
@@ -120,7 +123,9 @@ const PhoneNumberInput = ({
           id={name}
         />
       </section>
-      <section className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto`}>
+      <section
+        className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto`}
+      >
         {allCountries.map((option: CountryCodeOption) => (
           <div
             key={`${option.dialCode}-${option.iso2}`}
@@ -134,7 +139,7 @@ const PhoneNumberInput = ({
         ))}
 
       </section>
-    </>
+    </section>
   );
 };
 
