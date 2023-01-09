@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { Fragment, useState } from 'react';
-import './PhoneNumberInput.css';
+
 import { allCountries, iso2Lookup } from 'country-telephone-data';
 import InputMask from 'react-input-mask';
 import { ColorsMap, GeneralProps } from '../types';
