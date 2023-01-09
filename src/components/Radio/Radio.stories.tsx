@@ -24,6 +24,7 @@ HelloRadio.args = {
   value: 'hello',
   children: 'Hello Radio',
   onChange: (value) => {},
+  checked: false,
 };
 
 CheckedByValue.args = {
