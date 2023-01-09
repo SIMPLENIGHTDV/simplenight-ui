@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import './PhoneNumberInput.css';
 import { allCountries, iso2Lookup } from 'country-telephone-data';
+import InputMask from 'react-input-mask';
 import { ColorsMap, GeneralProps } from '../types';
 import { ChevronDown, ChevronUp } from '../../../icons';
 import { CountryCodeOption } from './PhoneNumberInputTypes';
+import { formatDialCode, getPhoneNumberMask, removeFormatFromPhoneNumber } from './helpers';
 
   interface PhoneNumberInputSpecificProps {
     defaultPhoneNumber?: string;
@@ -40,7 +42,13 @@ const PhoneNumberInput = ({
   const [countryCode, setCountryCode] = useState<CountryCodeOption>(
     getDefaultCountryCode(defaultCode),
   );
+  const [formattedDialCode, setFormattedDialCode] = useState<string>(
+    countryCode.format ? formatDialCode(countryCode) : countryCode.dialCode,
+  );
   const [phoneNumber, setPhoneNumber] = useState(defaultPhoneNumber || '');
+  const [phoneNumberMask, setPhoneNumberMask] = useState<string>(
+    countryCode.format ? getPhoneNumberMask(countryCode) : '',
+  );
 
   const idleBorderColor = countryCode && phoneNumber ? 'border-dark-400' : 'border-dark-300';
   const focusBorderColor = 'border-primary-1000';
@@ -53,26 +61,36 @@ const PhoneNumberInput = ({
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
+  const updatePhoneMasks = (option:CountryCodeOption) => {
+    setFormattedDialCode(formatDialCode(option));
+    setPhoneNumberMask(getPhoneNumberMask(option));
+  };
+
   const handleChangeCode = (option:CountryCodeOption) => {
     const { dialCode } = option;
     setCountryCode(option);
-    onChange(JSON.stringify({ phone_prefix: dialCode, phone_number: phoneNumber }));
+    onChange(JSON.stringify({
+      phone_prefix: dialCode,
+      phone_number: removeFormatFromPhoneNumber(phoneNumber) }));
     setOpen(false);
+    updatePhoneMasks(option);
   };
 
   const handleChangePhone = (e:React.ChangeEvent<HTMLInputElement>) => {
     const phone = e.target.value;
     setPhoneNumber(phone);
-    onChange(JSON.stringify({ phone_prefix: countryCode.dialCode, phone_number: phone }));
+    onChange(JSON.stringify({
+      phone_prefix: countryCode.dialCode,
+      phone_number: removeFormatFromPhoneNumber(phone) }));
   };
   return (
     <>
       <section
-        className={`flex items-center  w-full border px-3 gap-2  ${height} ${colors[state]} 
+        className={`flex items-center  w-full border px-3   ${height} ${colors[state]} 
       ${open ? 'rounded-t' : 'rounded'}
       `}
       >
-        <section className="flex items-center" onClick={() => (!isDisabled ? setOpen(!open) : undefined)}>
+        <section className="flex items-center " onClick={() => (!isDisabled ? setOpen(!open) : undefined)}>
           <input
             type="text"
             className={`px-0 ${textSize}  bg-transparent w-8 h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
@@ -85,23 +103,22 @@ const PhoneNumberInput = ({
               : <ChevronDown className={`${iconSize} text-dark-700`} />}
           </button>
           <span className={textSize}>
-            +
-            {countryCode?.dialCode}
+            {countryCode?.dialCode && formattedDialCode}
           </span>
         </section>
-        <input
-          type="number"
-          className={`px-0 ${textSize} ${colors[state]} w-full h-full bg-transparent border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
-          placeholder={placeholder}
+        <InputMask
+          mask={phoneNumberMask || ''}
           onChange={handleChangePhone}
-          disabled={isDisabled}
-          name={name}
-          id={name}
           onFocus={() => setPhoneInputIsFocused(true)}
           onBlur={() => setPhoneInputIsFocused(false)}
           value={phoneNumber}
+          disabled={isDisabled}
+          maskChar={null}
+          placeholder={placeholder}
+          className={`px-0 pl-2 ${textSize} ${colors[state]} w-full h-full bg-transparent border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
+          name={name}
+          id={name}
         />
-
       </section>
       <section className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto`}>
         {allCountries.map((option: CountryCodeOption) => (
@@ -115,6 +132,7 @@ const PhoneNumberInput = ({
 
           </div>
         ))}
+
       </section>
     </>
   );
