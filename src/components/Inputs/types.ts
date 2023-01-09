@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export interface GeneralProps {
   name?: string;
@@ -28,4 +28,12 @@ export type SelectProps = Omit<GeneralProps, 'value' | 'onChange'> &
 
 export interface ColorsMap {
   [key: string]: string;
+}
+
+export interface ButtonInputProps {
+  name?: string;
+  size?: 'large' | 'small';
+  state?: 'idle' | 'disabled' | 'error' | 'success';
+  isOpen: boolean;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
