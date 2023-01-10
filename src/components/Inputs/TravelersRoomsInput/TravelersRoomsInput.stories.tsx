@@ -39,3 +39,9 @@ Success.args = {
   state: 'success',
   value: { travelers: '2 Adult, 2 Children', rooms: '2 Rooms' },
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  state: 'disabled',
+  value: { travelers: '2 Adult, 2 Children', rooms: '2 Rooms' },
+};
