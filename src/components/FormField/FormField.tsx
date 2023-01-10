@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import QuestionCirlce from '../../icons/regular/QuestionCircle';
+import QuestionCircle from '../../icons/regular/QuestionCircle';
 import Tooltip from '../Tooltip/Tooltip';
 import Label from '../Label/Label';
 
@@ -22,7 +22,7 @@ const FormField = ({ label, required, info, error, counterValue, counterMax, chi
           {label && <Label>{label}</Label>}
           {info && (
             <Tooltip text="Sec Info">
-              <QuestionCirlce className="text-dark-700 w-3.5" />
+              <QuestionCircle className="text-dark-700 w-3.5" />
             </Tooltip>
           )}
         </section>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
 
-const QuestionCirlce = (props: SVGProps<SVGSVGElement>) => (
+const QuestionCircle = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 16 16"
     fill="none"
@@ -15,4 +15,4 @@ const QuestionCirlce = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default QuestionCirlce;
+export default QuestionCircle;
