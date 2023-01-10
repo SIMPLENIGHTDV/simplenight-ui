@@ -32,20 +32,20 @@ Label.args = {
 LabelAndRequired.args = {
   children: <TextInput value="Hi, I'm a text input" onChange={() => {}} />,
   label: 'Input Label',
-  required: true,
+  required: { required: true, label: 'Required' },
 };
 
 LabelRequiredAndSecInfo.args = {
   children: <TextInput value="Hi, I'm a text input" onChange={() => {}} />,
   label: 'Input Label',
-  required: true,
+  required: { required: true, label: 'Required' },
   info: 'Secondary Info',
 };
 
 LabelRequiredInfoAndError.args = {
   children: <TextInput value="Hi, I'm a text input" onChange={() => {}} />,
   label: 'Input Label',
-  required: true,
+  required: { required: true, label: 'Required' },
   info: 'Secondary Info',
   error: 'Error Message',
 };
@@ -53,7 +53,7 @@ LabelRequiredInfoAndError.args = {
 LabelRequiredInfoErrorAndCounter.args = {
   children: <TextInput value="Hi, I'm a text input" onChange={() => {}} />,
   label: 'Input Label',
-  required: true,
+  required: { required: true, label: 'Required' },
   info: 'Secondary Info',
   error: 'Error Message',
   counterValue: 10,

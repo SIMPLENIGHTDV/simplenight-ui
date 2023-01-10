@@ -5,16 +5,38 @@ import QuestionCircle from '../../icons/regular/QuestionCircle';
 import Tooltip from '../Tooltip/Tooltip';
 import Label from '../Label/Label';
 
-const FormField = ({ label, required, info, error, counterValue, counterMax, children }: any) => {
-  const Required = () => required && <span className="text-primary-1000">Required</span>;
-  const Error = () => error && <span className="text-sm text-error-1000">{error}</span>;
-  const Counter = () => (counterValue || (counterValue && counterMax)) && (
+interface RequiredProp {
+  required: boolean;
+  label: string;
+}
+interface FormFieldProps {
+  label?: string;
+  required?: RequiredProp;
+  info?: string;
+  error?: string;
+  counterValue?: number;
+  counterMax?: number;
+  children: React.ReactNode;
+}
+
+const FormField = ({
+  label,
+  required,
+  info,
+  error,
+  counterValue,
+  counterMax,
+  children,
+}: FormFieldProps) => {
+  const Required = () => (required?.required ? <span className="text-primary-1000">{required.label}</span> : null);
+  const Error = () => (error ? <span className="text-sm text-error-1000">{error}</span> : null);
+  const Counter = () => ((counterValue || (counterValue && counterMax)) ? (
     <span className="text-sm text-dark-800">
       {counterValue}
       {counterMax && '/'}
       {counterMax}
     </span>
-  );
+  ) : null);
   return (
     <section>
       <section className="flex justify-between mb-1">
