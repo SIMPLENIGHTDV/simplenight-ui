@@ -1,17 +1,8 @@
 import React from 'react';
-import { ButtonInputProps, ColorsMap } from '../types';
+import { ColorsMap } from '../types';
 import BaseButtonInput from '../BaseButtonInput';
 import { Bed, MultiplePersons } from '../../../icons';
-
-interface TravelersRoomsInputProps extends ButtonInputProps {
-  placeholder?:ITravelersRooms;
-  value: ITravelersRooms;
-}
-
-interface ITravelersRooms{
-  travelers:string;
-  rooms:string;
-}
+import { TravelersRoomsInputProps } from './TravelerRoomsInputTypes';
 
 const TravelersRoomsInput = ({
   size = 'large',
