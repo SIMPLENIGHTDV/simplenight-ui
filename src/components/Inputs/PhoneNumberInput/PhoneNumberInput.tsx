@@ -88,7 +88,7 @@ const PhoneNumberInput = ({
       phone_number: removeFormatFromPhoneNumber(phone) }));
   };
   return (
-    <section ref={inputRef}>
+    <section ref={inputRef} className="relative">
       <section
         className={`flex items-center  w-full border px-3  
         ${height} ${colors[state]} ${open ? 'rounded-t' : 'rounded'}`}
@@ -124,7 +124,7 @@ const PhoneNumberInput = ({
         />
       </section>
       <section
-        className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto`}
+        className={`${!open ? 'hidden ' : ''} border border-primary-1000 border-t-0 rounded-b max-h-[286px] overflow-auto absolute w-full bg-white`}
       >
         {allCountries.map((option: CountryCodeOption) => (
           <div
