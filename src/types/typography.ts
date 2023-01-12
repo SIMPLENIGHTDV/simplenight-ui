@@ -17,8 +17,15 @@ export const headingClasses = {
 };
 
 export interface ParagraphProps {
-  fontWeight: 'normal' | 'medium' | 'semibold';
-  size: 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall';
+  fontWeight?: 'normal' | 'medium' | 'semibold';
+  size?:
+    | 'large'
+    | 'medium'
+    | 'small'
+    | 'xsmall'
+    | 'xxsmall'
+    | 'sm-lg'
+    | 'xs-sm';
   children: string;
   className?: string;
   textColor?: TextColor;
@@ -30,4 +37,6 @@ export const paragraphClasses = {
   small: 'text-p-sm',
   xsmall: 'text-p-xs',
   xxsmall: 'text-p-xxs',
+  'sm-lg': 'text-p-sm lg:text-p-lg',
+  'xs-sm': 'text-p-xs lg:text-p-sm',
 };

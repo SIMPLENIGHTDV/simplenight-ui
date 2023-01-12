@@ -2,10 +2,10 @@ import React from 'react';
 import { ParagraphProps, paragraphClasses } from '../../types/typography';
 
 const Paragraph = ({
-  fontWeight,
+  fontWeight = 'normal',
   className,
   children,
-  size,
+  size = 'xsmall',
   textColor = 'text-dark-1000',
 }: ParagraphProps) => {
   const paragraphClass = paragraphClasses[size];
