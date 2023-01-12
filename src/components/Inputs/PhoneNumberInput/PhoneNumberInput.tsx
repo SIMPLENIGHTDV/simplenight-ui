@@ -24,6 +24,7 @@ const PhoneNumberInput = ({
   state = 'idle',
   defaultCode = 'us',
   onChange,
+  required = false,
   defaultPhoneNumber,
   placeholder,
 }:PhoneNumberInputProps) => {
@@ -121,6 +122,7 @@ const PhoneNumberInput = ({
           className={`px-0 pl-2 ${textSize} ${colors[state]} w-full h-full bg-transparent border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
           name={name}
           id={name}
+          required={required}
         />
       </section>
       <section
@@ -130,7 +132,7 @@ const PhoneNumberInput = ({
           <div
             key={`${option.dialCode}-${option.iso2}`}
             onClick={() => handleChangeCode(option)}
-            className="cursor-pointer select-none p-2 border-solid border-b border-dark-200 hover:bg-dark-100 last:border-b-0 "
+            className="cursor-pointer select-none p-2 border-solid border-b border-dark-200 hover:bg-dark-100 last:border-b-0 text-base"
           >
 
             {option.iso2.toUpperCase()}
