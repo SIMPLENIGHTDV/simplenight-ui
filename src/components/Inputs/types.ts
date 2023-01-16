@@ -6,6 +6,7 @@ export interface GeneralProps {
   placeholder?: string;
   state?: 'idle' | 'disabled' | 'error' | 'success';
   value: string;
+  required?:boolean;
   // eslint-disable-next-line no-unused-vars
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

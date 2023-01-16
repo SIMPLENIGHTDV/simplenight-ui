@@ -22,7 +22,6 @@ const Select = ({
   leftPadding = 'pl-0',
   hideArrow = false,
 }: SelectSpecificProps) => {
-
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(options);
@@ -38,8 +37,10 @@ const Select = ({
   const openBorderColor = 'border-primary-1000';
   const colors: ColorsMap = {
     idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
-    error: 'text-dark-1000 border-error-1000',
-    success: 'text-dark-1000 border-green-1000',
+    error:
+      `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
+    success:
+      `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
