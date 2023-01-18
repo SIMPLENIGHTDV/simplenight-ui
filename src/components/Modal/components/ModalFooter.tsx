@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-interface ModalFooterProps {
+export interface ModalFooterProps {
   children: ReactNode | ReactNode[];
 }
 

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-interface ModalBodyPops {
+export interface ModalBodyPops {
   children: ReactNode | ReactNode[];
 }
 

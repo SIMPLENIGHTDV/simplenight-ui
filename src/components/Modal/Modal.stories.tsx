@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../constants';
+import { titles } from '@/constants';
 import Modal from './Modal';
-import ModalHeader from './components/ModalHeader';
-import ModalBody from './components/ModalBody';
-import ModalFooter from './components/ModalFooter';
-import Button from '../Button/Button';
+import ModalHeader from '@/components/Modal/components/ModalHeader';
+import ModalBody from '@/components/Modal/components/ModalBody';
+import ModalFooter from '@/components/Modal/components/ModalFooter';
+import Button from '@/components/Button/Button';
 
 export default {
   title: `${titles.layouts}Modal`,
@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const Standard = Template.bind({});
 Standard.args = {
   open: false,
-  closeModal: () => {},
+  onClose: () => {},
   children: (
     <>
       <ModalHeader onClose={() => {}} title="Header" />
@@ -50,7 +50,7 @@ Standard.args = {
 export const Empty = Template.bind({});
 Empty.args = {
   open: true,
-  closeModal: () => {},
+  onClose: () => {},
   children: (
     <section className="flex items-center justify-center h-full">
       <p>Empty modal without header and footer</p>

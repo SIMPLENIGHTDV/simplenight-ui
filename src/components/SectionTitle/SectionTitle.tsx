@@ -1,8 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import SectionIcon from '../SectionIcon/SectionIcon';
+import SectionIcon from '@/components/SectionIcon/SectionIcon';
 
-interface SectionTitleProps {
+export interface SectionTitleProps {
   icon?: React.ReactNode;
   title?: string;
   subTitle?: string;
@@ -20,7 +20,7 @@ const SectionTitle = ({
     <section>
       <h2 className="text-[2rem] font-bold text-dark-800 leading-8">{title}</h2>
       {subTitle && (
-        <p className="text-dark-800 text-lg leading-6">{subTitle}</p>
+        <p className="text-lg leading-6 text-dark-800">{subTitle}</p>
       )}
     </section>
   </section>

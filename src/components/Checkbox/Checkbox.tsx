@@ -2,9 +2,9 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { InputSize } from '../../types/size';
+import { InputSize } from '@/types/size';
 
-interface ICheckbox {
+export interface ICheckbox {
   value?: string;
   checked?: boolean;
   name?: string;

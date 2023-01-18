@@ -1,4 +1,4 @@
-interface ColorStates {
+export interface ColorStates {
   default: string;
   hover: string;
   focused: string;

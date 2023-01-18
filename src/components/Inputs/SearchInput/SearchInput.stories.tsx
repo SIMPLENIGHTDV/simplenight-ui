@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../../constants';
+import { titles } from '@/constants';
 import SearchInput from './SearchInput';
 
 export default {

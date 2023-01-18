@@ -1,8 +1,8 @@
 import React from 'react';
-import BaseInput from '../BaseInput';
-import { GeneralProps } from '../types';
+import BaseInput from '@/components/Inputs/BaseInput';
+import { GeneralProps } from '@/components/Inputs/types';
 
-interface PriceInputSpecificProps {
+export interface PriceInputSpecificProps {
   currency: string;
 }
 

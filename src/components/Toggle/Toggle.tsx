@@ -4,7 +4,7 @@
 import { Switch } from '@headlessui/react';
 import React from 'react';
 
-interface ToggleProps {
+export interface ToggleProps {
   id: string;
   checked: boolean;
   onChange: (value: boolean) => void;

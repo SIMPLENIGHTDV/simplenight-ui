@@ -1,15 +1,17 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-confusing-arrow */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import QuestionCircle from '../../icons/regular/QuestionCircle';
-import Tooltip from '../Tooltip/Tooltip';
-import Label from '../Label/Label';
+import QuestionCircle from '@/icons/regular/QuestionCircle';
+import Tooltip from '@/components/Tooltip/Tooltip';
+import Label from '@/components/Label/Label';
 
-interface RequiredProp {
+export interface RequiredProp {
   required: boolean;
   label: string;
 }
-interface FormFieldProps {
+export interface FormFieldProps {
   label?: string;
   required?: RequiredProp;
   info?: string;
@@ -28,15 +30,20 @@ const FormField = ({
   counterMax,
   children,
 }: FormFieldProps) => {
-  const Required = () => (required?.required ? <span className="text-primary-1000">{required.label}</span> : null);
-  const Error = () => (error ? <span className="text-sm text-error-1000">{error}</span> : null);
-  const Counter = () => ((counterValue || (counterValue && counterMax)) ? (
-    <span className="text-sm text-dark-800">
-      {counterValue}
-      {counterMax && '/'}
-      {counterMax}
-    </span>
-  ) : null);
+  const Required = () =>
+    required?.required ? (
+      <span className="text-primary-1000">{required.label}</span>
+    ) : null;
+  const Error = () =>
+    error ? <span className="text-sm text-error-1000">{error}</span> : null;
+  const Counter = () =>
+    counterValue || (counterValue && counterMax) ? (
+      <span className="text-sm text-dark-800">
+        {counterValue}
+        {counterMax && '/'}
+        {counterMax}
+      </span>
+    ) : null;
   return (
     <section>
       <section className="flex justify-between mb-1">

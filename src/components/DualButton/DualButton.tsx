@@ -1,8 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React, { ReactElement } from 'react';
-import useColorButton from '../../hooks';
+import useColorButton from '@/hooks';
 
-interface ButtonProps {
+export interface ButtonProps {
   rightValue: ReactElement;
   leftValue: ReactElement;
   disabledLeft?: boolean;

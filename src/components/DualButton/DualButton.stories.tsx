@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import MinusIcon from '../../icons/regular/MinusIcon';
-import PlusIcon from '../../icons/regular/PlusIcon';
-import { titles } from '../../constants';
+import MinusIcon from '@/icons/regular/MinusIcon';
+import PlusIcon from '@/icons/regular/PlusIcon';
+import { titles } from '@/constants';
 
 import DualButton from './DualButton';
 

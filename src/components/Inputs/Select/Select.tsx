@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState } from 'react';
-import { useOnOutsideClick } from '../../../hooks';
-import { ChevronDown, ChevronUp } from '../../../icons/regular';
+import { useOnOutsideClick } from '@/hooks';
+import { ChevronDown, ChevronUp } from '@/icons/regular';
 
-import { ColorsMap, SelectOption, SelectProps } from '../types';
+import {
+  ColorsMap,
+  SelectOption,
+  SelectProps,
+} from '@/components/Inputs/types';
 
-interface SelectSpecificProps extends SelectProps {
+export interface SelectSpecificProps extends SelectProps {
   leftPadding?: string;
   hideArrow?: boolean;
 }
@@ -37,10 +41,8 @@ const Select = ({
   const openBorderColor = 'border-primary-1000';
   const colors: ColorsMap = {
     idle: `text-dark-1000 ${open ? openBorderColor : idleBorderColor} `,
-    error:
-      `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
-    success:
-      `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
+    error: `text-dark-1000   ${open ? openBorderColor : 'border-error-1000'} `,
+    success: `text-dark-1000  ${open ? openBorderColor : 'border-green-1000'}`,
     disabled: 'text-dark-600 border-dark-300 bg-dark-200',
   };
 
@@ -83,7 +85,7 @@ const Select = ({
       <section
         className={`flex items-center  w-full border pl-3 pr-2  ${height}  ${
           colors[state]
-        } 
+        }
         ${open ? 'rounded-t' : 'rounded'}
         `}
         onClick={!isDisabled ? handleOpenClose : undefined}

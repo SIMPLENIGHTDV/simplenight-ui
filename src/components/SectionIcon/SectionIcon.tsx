@@ -1,8 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { InfoCircle } from '../../icons/regular';
+import { InfoCircle } from '@/icons/regular';
 
-interface SectionIconProps {
+export interface SectionIconProps {
   sizeRem?: number;
   colorClass?: string;
   icon?: React.ReactNode;

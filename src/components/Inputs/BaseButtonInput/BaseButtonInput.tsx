@@ -1,8 +1,8 @@
 /* eslint-disable operator-linebreak */
 import React, { ReactNode } from 'react';
-import { ButtonInputProps, ColorsMap } from '../types';
+import { ButtonInputProps, ColorsMap } from '@/components/Inputs/types';
 
-interface BaseButtonInputProps extends ButtonInputProps {
+export interface BaseButtonInputProps extends ButtonInputProps {
   children: ReactNode;
   hasValue: boolean;
 }

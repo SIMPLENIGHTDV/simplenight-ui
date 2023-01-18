@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../constants';
+import { titles } from '@/constants';
+import TextInput from '@/components/Inputs/TextInput/TextInput';
 import FormField from './FormField';
-import TextInput from '../Inputs/TextInput/TextInput';
 
 export default {
   title: `${titles.inputs}FormField`,

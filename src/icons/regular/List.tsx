@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
-
 const SvgList = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"

@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React, { createRef, useEffect, useState } from 'react';
 
-interface LoaderProps {
+export interface LoaderProps {
   circleColor?: string;
   spinnerColor?: string;
 }

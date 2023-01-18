@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../constants';
+import { titles } from '@/constants';
 
 import Counter from './Counter';
 

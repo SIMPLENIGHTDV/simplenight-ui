@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 
-interface NumberInputProps {
+export interface NumberInputProps {
   name?: string;
   value: number;
   defaultValue?: number;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../constants';
+import { titles } from '@/constants';
 import Disclaimer from './Disclaimer';
-import { InfoCircle } from '../../icons';
+import { InfoCircle } from '@/icons';
 
 export default {
   title: `${titles.components}Disclaimer`,

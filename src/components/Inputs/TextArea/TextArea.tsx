@@ -3,7 +3,7 @@ import React from 'react';
 type TextAreaProps = {
   name?: string;
   size?: 'large' | 'small';
-  rows?:number
+  rows?: number;
   placeholder?: string;
   state?: 'idle' | 'disabled' | 'error' | 'success';
   value: string;
@@ -13,7 +13,7 @@ type TextAreaProps = {
   ) => void;
 };
 
-interface ColorsMap {
+export interface ColorsMap {
   [key: string]: string;
 }
 

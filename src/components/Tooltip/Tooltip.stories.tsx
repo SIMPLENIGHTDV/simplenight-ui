@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../constants';
+import { titles } from '@/constants';
 import Tooltip from './Tooltip';
-import QuestionCircle from '../../icons/regular/QuestionCircle';
+import QuestionCircle from '@/icons/regular/QuestionCircle';
 
 export default {
   title: `${titles.components}Tooltip`,

@@ -1,3 +1,5 @@
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -15,12 +17,13 @@ module.exports = {
   ],
   framework: '@storybook/react',
   webpackFinal: async (config, { configType }) => {
-    config.node = {
-      ...config.node,
-      fs: false,
-      stream: false,
-      os: false,
-    };
+    (config.resolve.plugins = [new TsconfigPathsPlugin()]),
+      (config.node = {
+        ...config.node,
+        fs: false,
+        stream: false,
+        os: false,
+      });
     return config;
   },
 };

@@ -1,7 +1,7 @@
 import React from 'react';
-import { ColorsMap } from '../types';
-import BaseButtonInput from '../BaseButtonInput';
-import { Bed, MultiplePersons } from '../../../icons';
+import { ColorsMap } from '@/components/Inputs/types';
+import BaseButtonInput from '@/components/Inputs/BaseButtonInput';
+import { Bed, MultiplePersons } from '@/icons';
 import { TravelersRoomsInputProps } from './TravelerRoomsInputTypes';
 
 const TravelersRoomsInput = ({
@@ -35,18 +35,20 @@ const TravelersRoomsInput = ({
       onClick={onClick}
     >
       <section className={`flex items-center gap-2 ${textSize}`}>
-        <div className="w-full flex gap-2 items-center">
+        <div className="flex items-center w-full gap-2">
           <MultiplePersons className={`${iconSize} ${colors[state]}`} />
-          {!hasValue && <div className="text-dark-600">{placeholder.travelers}</div>}
+          {!hasValue && (
+            <div className="text-dark-600">{placeholder.travelers}</div>
+          )}
           <div className={`${textColor}`}>{value.travelers}</div>
         </div>
-        <div className="w-full flex gap-2 items-center">
+        <div className="flex items-center w-full gap-2">
           <Bed className={`${iconSize} ${colors[state]}`} />
-          {!hasValue && <div className="text-dark-600">{placeholder.rooms}</div>}
+          {!hasValue && (
+            <div className="text-dark-600">{placeholder.rooms}</div>
+          )}
           <div className={`${textColor}`}>{value.rooms}</div>
-
         </div>
-
       </section>
     </BaseButtonInput>
   );

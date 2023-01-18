@@ -2,8 +2,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Container from './Container';
-import { titles } from '../../constants';
-import Paragraph from '../Paragraph/Paragraph';
+import { titles } from '@/constants';
+import Paragraph from '@/components/Paragraph/Paragraph';
 
 export default {
   title: `${titles.layouts}Container`,

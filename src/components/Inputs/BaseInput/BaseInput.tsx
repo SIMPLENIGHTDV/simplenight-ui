@@ -1,7 +1,7 @@
 import React from 'react';
-import { ColorsMap, GeneralProps } from '../types';
+import { ColorsMap, GeneralProps } from '@/components/Inputs/types';
 
-interface BaseInputSpecificProps {
+export interface BaseInputSpecificProps {
   type: 'text' | 'password';
   rightPadding?: string;
   leftPadding?: string;

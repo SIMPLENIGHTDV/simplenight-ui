@@ -3,9 +3,7 @@
 import React, { MouseEvent, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 
-import ModalHeader from './components/ModalHeader';
-
-interface ModalProps {
+export interface ModalProps {
   open: boolean;
   onClose: (event?: MouseEvent<HTMLElement>) => void;
   children?: ReactNode | ReactNode[];

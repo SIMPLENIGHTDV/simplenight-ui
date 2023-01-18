@@ -1,11 +1,11 @@
-import { ButtonInputProps } from '../types';
+import { ButtonInputProps } from '@/components/Inputs/types';
 
 export interface TravelersRoomsInputProps extends ButtonInputProps {
-    placeholder?:ITravelersRooms;
-    value: ITravelersRooms;
-  }
+  placeholder?: ITravelersRooms;
+  value: ITravelersRooms;
+}
 
-  interface ITravelersRooms{
-    travelers:string;
-    rooms:string;
-  }
+export interface ITravelersRooms {
+  travelers: string;
+  rooms: string;
+}

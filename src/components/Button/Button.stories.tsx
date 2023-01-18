@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { titles } from '../../constants';
-import Arrow from '../../icons/regular/Arrow';
+import { titles } from '@/constants';
+import Arrow from '@/icons/regular/Arrow';
 
 import Button from './Button';
 

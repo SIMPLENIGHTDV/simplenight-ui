@@ -3,7 +3,7 @@
 import React from 'react';
 import './radio.css';
 
-interface IRadio {
+export interface IRadio {
   value?: string;
   children?: React.ReactNode;
   onChange: (value: any) => void;

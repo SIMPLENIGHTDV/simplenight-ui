@@ -1,7 +1,7 @@
 import React from 'react';
-import { ColorsMap } from '../types';
-import BaseButtonInput from '../BaseButtonInput';
-import { MultiplePersons } from '../../../icons';
+import { ColorsMap } from '@/components/Inputs/types';
+import BaseButtonInput from '@/components/Inputs/BaseButtonInput';
+import { MultiplePersons } from '@/icons';
 import { TravelersInputProps } from './TravelersInputTypes';
 
 const TravelersInput = ({

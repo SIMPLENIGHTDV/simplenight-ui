@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import useColorButton from '../../hooks';
+import useColorButton from '@/hooks';
 
-interface IButton {
+export interface IButton {
   children: React.ReactNode;
   type?: 'primary' | 'outlined' | 'danger';
   disabled?: boolean;

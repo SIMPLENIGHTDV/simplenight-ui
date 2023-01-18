@@ -1,10 +1,10 @@
 import React from 'react';
-import Search from '../../../icons/regular/Search';
-import Cross from '../../../icons/regular/Cross';
-import BaseInput from '../BaseInput';
-import { ColorsMap, GeneralProps } from '../types';
+import Search from '@/icons/regular/Search';
+import Cross from '@/icons/regular/Cross';
+import BaseInput from '@/components/Inputs/BaseInput';
+import { ColorsMap, GeneralProps } from '@/components/Inputs/types';
 
-interface SearchInputSpecificProps {
+export interface SearchInputSpecificProps {
   onClear: () => void;
 }
 

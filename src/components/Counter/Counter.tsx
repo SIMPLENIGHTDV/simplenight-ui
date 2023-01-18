@@ -1,12 +1,12 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import MinusIcon from '../../icons/regular/MinusIcon';
-import DualButton from '../DualButton';
-import NumberInput from '../Inputs/NumberInput';
-import PlusIcon from '../../icons/regular/PlusIcon';
+import MinusIcon from '@/icons/regular/MinusIcon';
+import DualButton from '@/components/DualButton';
+import NumberInput from '@/components/Inputs/NumberInput';
+import PlusIcon from '@/icons/regular/PlusIcon';
 
-interface CounterProps {
+export interface CounterProps {
   value: number;
   setValue: (value: number) => void;
   minValue?: number;

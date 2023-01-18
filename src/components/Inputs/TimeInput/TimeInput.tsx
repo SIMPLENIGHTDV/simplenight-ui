@@ -1,7 +1,7 @@
 import React from 'react';
-import Select from '../Select';
-import { ColorsMap, SelectProps } from '../types';
-import Clock from '../../../icons/regular/Clock';
+import Select from '@/components/Inputs/Select';
+import { ColorsMap, SelectProps } from '@/components/Inputs/types';
+import Clock from '@/icons/regular/Clock';
 
 type TimeInputProps = Omit<SelectProps, 'searchable'>;
 

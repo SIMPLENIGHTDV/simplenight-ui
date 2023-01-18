@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unused-prop-types */
 import React, { ReactNode } from 'react';
 
-interface IContainer {
+export interface IContainer {
   children: ReactNode | ReactNode[];
   className?: string;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import Calendar from '../../../icons/regular/Calendar';
-import { ButtonInputProps, ColorsMap } from '../types';
-import BaseButtonInput from '../BaseButtonInput';
+import Calendar from '@/icons/regular/Calendar';
+import { ButtonInputProps, ColorsMap } from '@/components/Inputs/types';
+import BaseButtonInput from '@/components/Inputs/BaseButtonInput';
 
-interface DateInputProps extends ButtonInputProps {
+export interface DateInputProps extends ButtonInputProps {
   placeholder?: string;
   value: string;
 }

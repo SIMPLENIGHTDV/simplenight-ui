@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Calendar } from '../../icons/regular';
-import { titles } from '../../constants';
+import { Calendar } from '@/icons/regular';
+import { titles } from '@/constants';
 import SectionIcon from './SectionIcon';
 
 export default {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import BaseInput from '../BaseInput';
 import { GeneralProps } from '../types';
-import Eye from '../../../icons/regular/Eye';
-import EyeCross from '../../../icons/regular/EyeCross';
+import Eye from '@/icons/regular/Eye';
+import EyeCross from '@/icons/regular/EyeCross';
 
 type PasswordInputProps = GeneralProps;
 

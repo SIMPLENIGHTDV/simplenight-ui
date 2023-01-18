@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
-
 const SvgEyeCross = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
