@@ -18,6 +18,8 @@ jobs:
       - name: Create Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           publish: npm run build
       - run: npm run build-storybook
