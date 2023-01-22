@@ -54,7 +54,6 @@
     "@typescript-eslint/parser": "^5.30.6",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
-    "ci": "^2.2.0",
     "copyfiles": "^2.4.1",
     "cssnano": "^5.1.12",
     "eslint": "^7.32.0 || ^8.2.0",
