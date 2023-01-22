@@ -1,6 +1,6 @@
 {
   "name": "@simplenightdv/simplenight-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simplenight Library: Proof of Concept",
   "scripts": {
     "initialize": "yarn && husky install",
