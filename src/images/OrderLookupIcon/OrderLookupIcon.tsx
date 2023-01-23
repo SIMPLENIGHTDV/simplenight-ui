@@ -129,7 +129,11 @@ const SvgOrderLookupIcon = ({ variant = 'primary', props }: ImageProps) => (
         y2={70.12}
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#FFFFEF" stopOpacity={0.1} />
+        <stop
+          className={`text-${variant}-100`}
+          stopColor="currentColor"
+          stopOpacity={0.1}
+        />
         <stop offset={1} stopColor="currentColor" />
       </linearGradient>
     </defs>

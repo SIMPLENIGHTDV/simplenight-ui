@@ -106,7 +106,11 @@ const EmptyState = ({ variant = 'primary', props }: ImageProps) => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="currentColor" />
-        <stop offset={1} stopColor="#FFFFEF" stopOpacity={0} />
+        <stop
+          offset={1}
+          className={`text-${variant}-100`}
+          stopColor="currentColor"
+        />
       </linearGradient>
     </defs>
   </svg>
