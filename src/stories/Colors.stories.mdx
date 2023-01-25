@@ -1,0 +1,410 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import ColorBox from './helpers/ColorBox.tsx';
+
+<Meta
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+  title="Colors"
+/>
+
+<PageTitle src="postcss/vars" title="Colors" />
+
+# Colors
+
+_Clicking on any color block will copy that color to your clipboard._
+
+## Branded Colors
+
+<ColorBox
+  color="bg-primary-dark"
+  name="Teal Dark"
+  hex="#298F97"
+  rgb="R:41 G:143 B:151"
+/>
+
+<ColorBox
+  color="bg-primary-1000"
+  name="Teal 1000"
+  hex="#0DADB9"
+  rgb="R:13 G:173 B:185"
+/>
+
+<ColorBox
+  color="bg-primary-900"
+  name="Teal 900"
+  hex="#3DB6BF"
+  rgb="R:96 G:189 B:156"
+/>
+
+<ColorBox
+  color="bg-primary-800"
+  name="Teal 800"
+  hex="#60BDC4"
+  rgb="R:96 G:188 B:196"
+/>
+
+<ColorBox
+  color="bg-primary-700"
+  name="Teal 700"
+  hex="#7AC9CF"
+  rgb="R:122 G:201 B:207"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-primary-600"
+  name="Teal 600"
+  hex="#8CD6DB"
+  rgb="R:140 G:214 B:219"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-primary-500"
+  name="Teal 500"
+  hex="#9FDCE0"
+  rgb="R:159 G:220 B:224"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-primary-400"
+  name="Teal 400"
+  hex="#B8E0E3"
+  rgb="R:184 G:224 B:227"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-primary-300"
+  name="Teal 300"
+  hex="#CCE6E8"
+  rgb="R:204 G:230 B:232"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-primary-200"
+  name="Teal 200"
+  hex="#D8EEF0"
+  rgb="R:216 G:238 B:240"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-primary-100"
+  name="Teal 100"
+  hex="#EDFBFC"
+  rgb="R:237 G:251 B:252"
+  textWhite={false}
+/>
+
+## Global Colors
+
+### Dark
+
+<ColorBox
+  color="bg-dark-1000"
+  name="Dark 1000"
+  hex="#454545"
+  rgb="R:69 G:69 B:69"
+/>
+
+<ColorBox
+  color="bg-dark-900"
+  name="Dark 900"
+  hex="#595959"
+  rgb="R:89 G:89 B:89"
+/>
+
+<ColorBox
+  color="bg-dark-800"
+  name="Dark 800"
+  hex="#666666"
+  rgb="R:102 G:102 B:102"
+/>
+
+<ColorBox
+  color="bg-dark-700"
+  name="Dark 700"
+  hex="#7A7A7A"
+  rgb="R:122 G:122 B:122"
+/>
+
+<ColorBox
+  color="bg-dark-600"
+  name="Dark 600"
+  hex="#8A8A8A"
+  rgb="R:138 G:138 B:138"
+/>
+
+<ColorBox
+  color="bg-dark-500"
+  name="Dark 500"
+  hex="#9C9C9C"
+  rgb="R:156 G:156 B:156"
+/>
+
+<ColorBox
+  color="bg-dark-400"
+  name="Dark 400"
+  hex="#B5B5B5"
+  rgb="R:181 G:181 B:181"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-dark-300"
+  name="Dark 300"
+  hex="#D4D4D4"
+  rgb="R:212 G:212 B:212"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-dark-200"
+  name="Dark 200"
+  hex="#EBEBEB"
+  rgb="R:235 G:235 B:235"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-dark-100"
+  name="Dark 100"
+  hex="#F7F7F7"
+  rgb="R:247 G:247 B:247"
+  textWhite={false}
+/>
+
+### Error
+
+<ColorBox
+  color="bg-error-1000"
+  name="Error 1000"
+  hex="#D10808"
+  rgb="R:209 G:8 B:8"
+/>
+
+<ColorBox
+  color="bg-error-900"
+  name="Error 900"
+  hex="#DE1F1F"
+  rgb="R:222 G:31 B:31"
+/>
+
+<ColorBox
+  color="bg-error-800"
+  name="Error 800"
+  hex="#E83333"
+  rgb="R:232 G:51 B:51"
+/>
+
+<ColorBox
+  color="bg-error-700"
+  name="Error 700"
+  hex="#F04343"
+  rgb="R:240 G:67 B:67"
+/>
+
+<ColorBox
+  color="bg-error-600"
+  name="Error 600"
+  hex="#F55656"
+  rgb="R:245 G:67 B:67"
+/>
+
+<ColorBox
+  color="bg-error-500"
+  name="Error 500"
+  hex="#F56E6E"
+  rgb="R:245 G:110 B:110"
+/>
+
+<ColorBox
+  color="bg-error-400"
+  name="Error 400"
+  hex="#F58787"
+  rgb="R:245 G:135 B:135"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-error-300"
+  name="Error 300"
+  hex="#F7A1A1"
+  rgb="R:247 G:161 B:161"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-error-200"
+  name="Error 200"
+  hex="#FCBDBD"
+  rgb="R:252 G:189 B:189"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-error-100"
+  name="Error 100"
+  hex="#FFD9D9"
+  rgb="R:255 G:217 B:217"
+  textWhite={false}
+/>
+
+### Warning
+
+<ColorBox
+  color="bg-warning-1000"
+  name="Warning 1000"
+  hex="#99680A"
+  rgb="R:153 G:104 B:10"
+/>
+
+<ColorBox
+  color="bg-warning-900"
+  name="Warning 900"
+  hex="#AD760B"
+  rgb="R:173 G:118 B:11"
+/>
+
+<ColorBox
+  color="bg-warning-800"
+  name="Warning 800"
+  hex="#C2840D"
+  rgb="R:194 G:132 B:13"
+/>
+
+<ColorBox
+  color="bg-warning-700"
+  name="Warning 700"
+  hex="#D18E0E"
+  rgb="R:209 G:142 B:14"
+/>
+
+<ColorBox
+  color="bg-warning-600"
+  name="Warning 600"
+  hex="#DE9812"
+  rgb="R:222 G:152 B:18"
+/>
+
+<ColorBox
+  color="bg-warning-500"
+  name="Warning 500"
+  hex="#EDA61C"
+  rgb="R:237 G:166 B:28"
+/>
+
+<ColorBox
+  color="bg-warning-400"
+  name="Warning 400"
+  hex="#F7B739"
+  rgb="R:247 G:183 B:57"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-warning-300"
+  name="Warning 300"
+  hex="#FFC85C"
+  rgb="R:255 G:200 B:179"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-warning-200"
+  name="Warning 200"
+  hex="#FFE5B2"
+  rgb="R:255 G:229 B:179"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-warning-100"
+  name="Warning 100"
+  hex="#FFF4DE"
+  rgb="R:255 G:244 B:222"
+  textWhite={false}
+/>
+
+### Green
+
+<ColorBox
+  color="bg-green-1000"
+  name="Green 1000"
+  hex="#248443"
+  rgb="R:36 G:132 B:67"
+/>
+
+<ColorBox
+  color="bg-green-900"
+  name="Green 900"
+  hex="#2CA252"
+  rgb="R:44 G:162 B:82"
+/>
+
+<ColorBox
+  color="bg-green-800"
+  name="Green 800"
+  hex="#35BF62"
+  rgb="R:53 G:191 B:98"
+/>
+
+<ColorBox
+  color="bg-green-700"
+  name="Green 700"
+  hex="#4CCE76"
+  rgb="R:76 G:206 B:118"
+/>
+
+<ColorBox
+  color="bg-green-600"
+  name="Green 600"
+  hex="#6AD68D"
+  rgb="R:106 G:214 B:141"
+/>
+
+<ColorBox
+  color="bg-green-500"
+  name="Green 500"
+  hex="#88DEA4"
+  rgb="R:136 G:214 B:141"
+/>
+
+<ColorBox
+  color="bg-green-400"
+  name="Green 400"
+  hex="#A6E6BB"
+  rgb="R:166 G:230 B:187"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-green-300"
+  name="Green 300"
+  hex="#D8F0E0"
+  rgb="R:216 G:240 B:224"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-green-200"
+  name="Green 200"
+  hex="#E1F7E8"
+  rgb="R:225 G:247 B:232"
+  textWhite={false}
+/>
+
+<ColorBox
+  color="bg-green-100"
+  name="Green 100"
+  hex="#F5FCF7"
+  rgb="R:245 G:252 B:247"
+  textWhite={false}
+/>
