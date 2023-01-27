@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
+
 const SvgCash = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 16 10"
@@ -13,4 +14,5 @@ const SvgCash = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgCash;

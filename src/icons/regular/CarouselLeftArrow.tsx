@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
+
 const SvgCarouselLeftArrow = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
@@ -54,4 +55,5 @@ const SvgCarouselLeftArrow = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgCarouselLeftArrow;

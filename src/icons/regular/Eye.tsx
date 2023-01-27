@@ -14,4 +14,5 @@ const SvgEye = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgEye;
