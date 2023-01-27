@@ -3,6 +3,7 @@ import { ColorsMap } from '@/components/Inputs/types';
 import BaseButtonInput from '@/components/Inputs/BaseButtonInput';
 import { MultiplePersons } from '@/icons';
 import { TravelersInputProps } from './TravelersInputTypes';
+import IconWrapper from '@/components/IconWrapper';
 
 const TravelersInput = ({
   size = 'large',
@@ -17,7 +18,7 @@ const TravelersInput = ({
   const textSize = size === 'small' ? 'text-xs' : 'text-sm';
   const textColor = state === 'disabled' ? 'text-dark-600' : 'text-dark-1000';
 
-  const iconSize = size === 'large' ? 'w-4 h-4' : 'w-3.5 h-3.5';
+  const iconSize = size === 'large' ? 20 : 16;
   const idleColor = isOpen ? 'text-dark-1000' : 'text-dark-700';
   const colors: ColorsMap = {
     idle: `${idleColor}`,
@@ -35,7 +36,9 @@ const TravelersInput = ({
       onClick={onClick}
     >
       <section className={`flex items-center gap-2 ${textSize}`}>
-        <MultiplePersons className={`${iconSize} ${colors[state]}`} />
+        <IconWrapper size={iconSize}>
+          <MultiplePersons className={` ${colors[state]}`} />
+        </IconWrapper>
         {!hasValue && <div className="text-dark-600">{placeholder}</div>}
         <div className={`${textColor}`}>{value}</div>
       </section>

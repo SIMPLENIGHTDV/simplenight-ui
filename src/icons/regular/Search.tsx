@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
+
 const SvgSearch = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width={18}
@@ -14,4 +15,5 @@ const SvgSearch = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgSearch;

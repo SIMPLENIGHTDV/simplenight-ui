@@ -30,7 +30,7 @@ const IconWrapper = ({ size, desktop, children }: IIconWrapper) => {
     <div
       className={`${mobileClasses[size]} ${
         desktop ? desktopClasses[desktop] : ''
-      }`}
+      } flex-none `}
     >
       {children}
     </div>

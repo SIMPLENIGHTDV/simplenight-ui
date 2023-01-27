@@ -5,6 +5,7 @@ import PlusIcon from '@/icons/regular/PlusIcon';
 import { titles } from '@/constants';
 
 import DualButton from './DualButton';
+import IconWrapper from '../IconWrapper';
 
 export default {
   title: `${titles.components}DualButton`,
@@ -17,20 +18,44 @@ const Template: ComponentStory<typeof DualButton> = (args) => (
 
 export const Active = Template.bind({});
 Active.args = {
-  leftValue: <MinusIcon />,
-  rightValue: <PlusIcon />,
+  leftValue: (
+    <IconWrapper size={24}>
+      <MinusIcon />
+    </IconWrapper>
+  ),
+  rightValue: (
+    <IconWrapper size={24}>
+      <PlusIcon />
+    </IconWrapper>
+  ),
 };
 
 export const RightDisabled = Template.bind({});
 RightDisabled.args = {
   disabledRight: true,
-  leftValue: <MinusIcon />,
-  rightValue: <PlusIcon />,
+  leftValue: (
+    <IconWrapper size={24}>
+      <MinusIcon />
+    </IconWrapper>
+  ),
+  rightValue: (
+    <IconWrapper size={24}>
+      <PlusIcon />
+    </IconWrapper>
+  ),
 };
 
 export const LeftDisabled = Template.bind({});
 LeftDisabled.args = {
   disabledLeft: true,
-  leftValue: <MinusIcon />,
-  rightValue: <PlusIcon />,
+  leftValue: (
+    <IconWrapper size={24}>
+      <MinusIcon />
+    </IconWrapper>
+  ),
+  rightValue: (
+    <IconWrapper size={24}>
+      <PlusIcon />
+    </IconWrapper>
+  ),
 };

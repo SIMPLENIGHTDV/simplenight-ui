@@ -5,6 +5,7 @@ import MinusIcon from '@/icons/regular/MinusIcon';
 import DualButton from '@/components/DualButton';
 import NumberInput from '@/components/Inputs/NumberInput';
 import PlusIcon from '@/icons/regular/PlusIcon';
+import IconWrapper from '../IconWrapper';
 
 export interface CounterProps {
   value: number;
@@ -37,8 +38,16 @@ const Counter = ({ value, setValue, minValue = 0, maxValue }: CounterProps) => {
         disabled
       />
       <DualButton
-        leftValue={<MinusIcon />}
-        rightValue={<PlusIcon />}
+        leftValue={
+          <IconWrapper size={24}>
+            <MinusIcon />
+          </IconWrapper>
+        }
+        rightValue={
+          <IconWrapper size={24}>
+            <PlusIcon />
+          </IconWrapper>
+        }
         onLeftClick={handleLeftClick}
         onRightClick={handleRightClick}
         disabledLeft={value === minValue}
