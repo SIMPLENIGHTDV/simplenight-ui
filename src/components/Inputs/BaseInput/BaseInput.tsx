@@ -2,7 +2,7 @@ import React from 'react';
 import { ColorsMap, GeneralProps } from '@/components/Inputs/types';
 
 export interface BaseInputSpecificProps {
-  type: 'text' | 'password';
+  type: 'text' | 'password' | 'number';
   rightPadding?: string;
   leftPadding?: string;
 }

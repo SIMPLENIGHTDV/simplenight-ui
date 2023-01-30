@@ -23,7 +23,7 @@ const PriceInput = ({
   return (
     <section className="relative flex items-center">
       <BaseInput
-        type="text"
+        type="number"
         size={size}
         placeholder={placeholder}
         state={state}
