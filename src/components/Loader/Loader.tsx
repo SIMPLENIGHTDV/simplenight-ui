@@ -1,5 +1,6 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
+import { useLoaderSize } from '../../hooks/useLoaderProperties';
 
 export interface LoaderProps {
   circleColor?: string;
@@ -12,29 +13,8 @@ const Loader = ({
   spinnerColor = 'text-primary-1000',
   size = 'large',
 }: LoaderProps) => {
-  const getSmallSpinnerProperties = () => ({
-    spinnerWidth: 24,
-    spinnerHeight: 24,
-    spinnerRadius: 10,
-    spinnerStrokeWidth: 4,
-    strokePath: 'M12 2C14.8754 2 17.4674 3.21363 19.2917 5.15659',
-  });
-  const getLargeSpinnerProperties = () => ({
-    spinnerWidth: 80,
-    spinnerHeight: 80,
-    spinnerRadius: 36,
-    spinnerStrokeWidth: 8,
-    strokePath: 'M40 4C50.3516 4 59.6827 8.36906 66.25 15.3637',
-  });
-
-  const getSpinnerProperties = () => {
-    const isLarge = size === 'large';
-    if (isLarge) return getLargeSpinnerProperties();
-    return getSmallSpinnerProperties();
-  };
-
   const { spinnerWidth, spinnerHeight, spinnerRadius, spinnerStrokeWidth,
-    strokePath } = getSpinnerProperties();
+    strokePath } = useLoaderSize(size);
 
   return (
     <div

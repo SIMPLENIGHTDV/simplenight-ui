@@ -1,28 +1,28 @@
 import React from 'react';
 import useColorButton from '@/hooks';
 import Loader from '../Loader/Loader';
+import { useLoaderColor } from '@/hooks/useLoaderProperties';
 
 export interface IButton {
   type?: 'primary' | 'outlined' | 'danger' | 'no-background';
   disabled?: boolean;
-  size?: 'large'|'small';
-  width?: string;
+  size?: 'large' | 'small';
   onClick?: () => void;
   loading?: boolean;
-  icon?:React.ReactElement
-  children?:string;
-
+  icon?: React.ReactElement;
+  children?: string;
+  fullWidth?: boolean;
 }
 
 const defaultProps = {
   type: 'primary',
   disabled: false,
   size: 'large',
-  width: '',
   onClick: () => {},
   loading: false,
   children: '',
   icon: '',
+  fullWidth: false,
 };
 
 const Button = ({
@@ -31,71 +31,41 @@ const Button = ({
   type = 'primary',
   disabled = false,
   size = 'large',
-
+  fullWidth = false,
   onClick,
   loading = false,
 }: IButton) => {
   const colors = useColorButton(type);
+  const loaderColors = useLoaderColor(type);
   const isLarge = size === 'large';
   const height = isLarge ? 'h-11' : 'h-8';
-
-  /*  let customHeight;
-  switch (size) {
-    case 'large':
-      customHeight = 'h-11';
-      break;
-    case 'small':
-      customHeight = 'h-8';
-      break;
-    default:
-      customHeight = height;
-      break;
-  } */
-
-  const loaderProps = {
-    primary: {
-      circleColor: 'text-white opacity-25',
-      spinnerColor: 'text-white',
-    },
-    danger: {
-      circleColor: 'text-white opacity-25',
-      spinnerColor: 'text-white',
-    },
-    outlined: {
-      circleColor: 'text-black opacity-25',
-      spinnerColor: 'text-black',
-    },
-    'no-background': {
-      circleColor: 'text-primary opacity-25',
-      spinnerColor: 'text-primary',
-    },
-  };
+  const hasText = children !== '';
+  const padding = hasText ? 'px-6' : 'px-3';
+  const activeColorClasses = `${colors.default} ${colors.hover} ${colors.focused} ${colors.pressed}`;
 
   return (
     <button
       type="button"
-      className={`flex justify-center items-center gap-1 border rounded max-w-fit px-2 
-      text-sm font-semibold leading-lg ${height}
-      ${
-    !disabled && !loading
-      ? `cursor-pointer ${colors.default} ${colors.hover} ${colors.focused} ${colors.pressed}`
-      : ''
-    }
+      className={`flex justify-center items-center gap-1 border rounded 
+      text-sm font-semibold leading-lg ${height} ${padding} 
+      w-full ${fullWidth ? 'md:w-full' : 'md:w-auto'}
+      ${!disabled && !loading ? `cursor-pointer ${activeColorClasses}` : ''}
         ${disabled ? `cursor-not-allowed ${colors.disabled}` : ''}
         ${loading ? `cursor-not-allowed ${colors.loading}` : ''}
         `}
       onClick={onClick}
       disabled={disabled}
     >
-
-      {loading && <Loader size="small" {...loaderProps[`${type}`]} /> }
-      {!loading && icon && icon }
-      {!loading && children && children}
+      {loading && (
+        <div className="absolute">
+          <Loader size="small" {...loaderColors} />
+        </div>
+      )}
+      {icon && icon}
+      {children && children}
     </button>
   );
 };
-
-/* className="text-sm font-semibold leading-lg" */
 
 Button.defaultProps = defaultProps;
 
