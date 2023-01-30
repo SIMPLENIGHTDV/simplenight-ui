@@ -21,4 +21,5 @@ const SvgBar = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgBar;

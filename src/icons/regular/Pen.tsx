@@ -14,4 +14,5 @@ const SvgPen = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgPen;

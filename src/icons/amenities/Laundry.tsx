@@ -26,4 +26,5 @@ const SvgLaundry = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgLaundry;

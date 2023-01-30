@@ -23,4 +23,5 @@ const SvgSpa = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgSpa;

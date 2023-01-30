@@ -23,4 +23,5 @@ const SvgPet = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgPet;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
+
 const SvgShowsEvents = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -16,4 +17,5 @@ const SvgShowsEvents = (props: SVGProps<SVGSVGElement>) => (
     </g>
   </svg>
 );
+
 export default SvgShowsEvents;

@@ -23,4 +23,5 @@ const SvgRestaurant = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgRestaurant;

@@ -16,4 +16,5 @@ const SvgEyeCross = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgEyeCross;

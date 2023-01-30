@@ -19,4 +19,5 @@ const SvgGym = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgGym;

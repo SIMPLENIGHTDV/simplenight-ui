@@ -14,4 +14,5 @@ const SvgWrench = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgWrench;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
+
 const SvgHamburgerMenuButton = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
@@ -13,4 +14,5 @@ const SvgHamburgerMenuButton = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default SvgHamburgerMenuButton;

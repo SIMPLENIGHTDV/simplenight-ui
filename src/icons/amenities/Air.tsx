@@ -24,4 +24,5 @@ const SvgAir = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgAir;

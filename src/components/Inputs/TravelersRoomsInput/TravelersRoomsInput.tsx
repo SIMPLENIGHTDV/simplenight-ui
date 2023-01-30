@@ -1,7 +1,7 @@
 import React from 'react';
 import { ColorsMap } from '@/components/Inputs/types';
 import BaseButtonInput from '@/components/Inputs/BaseButtonInput';
-import { Bed, MultiplePersons } from '@/icons';
+import { CatHotels, MultiplePersons } from '@/icons';
 import { TravelersRoomsInputProps } from './TravelerRoomsInputTypes';
 
 const TravelersRoomsInput = ({
@@ -43,7 +43,7 @@ const TravelersRoomsInput = ({
           <div className={`${textColor}`}>{value.travelers}</div>
         </div>
         <div className="flex items-center w-full gap-2">
-          <Bed className={`${iconSize} ${colors[state]}`} />
+          <CatHotels className={`${iconSize} ${colors[state]}`} />
           {!hasValue && (
             <div className="text-dark-600">{placeholder.rooms}</div>
           )}

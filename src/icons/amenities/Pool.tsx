@@ -28,4 +28,5 @@ const SvgPool = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgPool;
