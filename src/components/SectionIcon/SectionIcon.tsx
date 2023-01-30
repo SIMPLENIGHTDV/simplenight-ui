@@ -1,30 +1,26 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { InfoCircle } from '@/icons/regular';
+import IconWrapper from '../IconWrapper';
 
 export interface SectionIconProps {
-  sizeRem?: number;
   colorClass?: string;
   icon?: React.ReactNode;
 }
 
 const SectionIcon = ({
-  sizeRem = 2.5,
   colorClass = 'bg-primary-1000',
-  icon = <InfoCircle />,
+  icon = <InfoCircle className="text-white" />,
 }: SectionIconProps) => {
-  const sizeIcon = sizeRem / 2;
   return (
     <section
-      className={`${colorClass} rounded-full grid place-content-center`}
-      style={{ width: `${sizeRem}rem`, height: `${sizeRem}rem` }}
+      className={`${colorClass} rounded-full  w-[40px] h-[40px] md:w-[60px] md:h-[60px] 
+      flex justify-center items-center
+    `}
     >
-      <section
-        className="text-white"
-        style={{ width: `${sizeIcon}rem`, height: `${sizeIcon}rem` }}
-      >
+      <IconWrapper size={24} desktop={32}>
         {icon}
-      </section>
+      </IconWrapper>
     </section>
   );
 };

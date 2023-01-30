@@ -3,15 +3,14 @@ import { SVGProps } from 'react';
 
 const SvgSearch = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width={18}
-    height={18}
+    viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
-      d="M17.092 15.908 14 12.842A7.5 7.5 0 1 0 12.842 14l3.066 3.067a.834.834 0 0 0 1.184 0 .833.833 0 0 0 0-1.159ZM8.167 14a5.833 5.833 0 1 1 0-11.666 5.833 5.833 0 0 1 0 11.666Z"
-      fill="currentColor"
+      d="M14.473 13.527 12 11.073a6 6 0 1 0-.927.927l2.454 2.453a.667.667 0 0 0 .946 0 .666.666 0 0 0 0-.926ZM7.333 12a4.667 4.667 0 1 1 0-9.333 4.667 4.667 0 0 1 0 9.333Z"
+      fill="#7A7A7A"
     />
   </svg>
 );

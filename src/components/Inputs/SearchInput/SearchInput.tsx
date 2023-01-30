@@ -3,6 +3,7 @@ import Search from '@/icons/regular/Search';
 import Cross from '@/icons/regular/Cross';
 import BaseInput from '@/components/Inputs/BaseInput';
 import { ColorsMap, GeneralProps } from '@/components/Inputs/types';
+import IconWrapper from '@/components/IconWrapper';
 
 export interface SearchInputSpecificProps {
   onClear: () => void;
@@ -18,8 +19,7 @@ const SearchInput = ({
   onChange,
   onClear,
 }: SearchInputProps) => {
-  const leftIconSize = size === 'large' ? 'w-4 h-4' : 'w-3.5 h-3.5';
-  const rightIconSize = size === 'large' ? 'w-3 h-3' : 'w-2.5 h-2.5';
+  const iconSize = size === 'large' ? 20 : 16;
 
   const hasValue = value !== '';
   const notDisabled = state !== 'disabled';
@@ -37,7 +37,9 @@ const SearchInput = ({
   return (
     <section className="relative flex items-center">
       <div className="absolute left-3.5">
-        <Search className={`${leftIconSize} ${colors[state]}`} />
+        <IconWrapper size={iconSize}>
+          <Search className={`${colors[state]}`} />
+        </IconWrapper>
       </div>
       <BaseInput
         type="text"
@@ -51,7 +53,9 @@ const SearchInput = ({
       />
       {showClearButton && (
         <button className="absolute right-3.5" onClick={onClear} type="button">
-          <Cross className={`${rightIconSize} text-dark-700`} />
+          <IconWrapper size={iconSize}>
+            <Cross className="text-dark-700" />
+          </IconWrapper>
         </button>
       )}
     </section>

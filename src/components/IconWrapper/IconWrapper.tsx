@@ -1,8 +1,8 @@
 import React from 'react';
-import { IIconWrapper } from './IconWrapperTypes';
+import { IconSize, IIconWrapper } from './IconWrapperTypes';
 
 const IconWrapper = ({ size, desktop, children }: IIconWrapper) => {
-  const mobileClasses: { [key: number]: string } = {
+  const mobileClasses: Record<IconSize, string> = {
     12: 'h-3 w-3',
     16: 'h-4 w-4',
     20: 'h-5 w-5',
@@ -14,7 +14,7 @@ const IconWrapper = ({ size, desktop, children }: IIconWrapper) => {
     60: 'h-[60px] w-[60px]',
     72: 'h-[72px] w-[72px]',
   };
-  const desktopClasses: { [key: number]: string } = {
+  const desktopClasses: Record<IconSize, string> = {
     12: 'md:h-3 md:w-3',
     16: 'md:h-4 md:w-4',
     20: 'md:h-5 md:w-5',
@@ -31,6 +31,8 @@ const IconWrapper = ({ size, desktop, children }: IIconWrapper) => {
       className={`${mobileClasses[size]} ${
         desktop ? desktopClasses[desktop] : ''
       } flex-none `}
+      aria-label="hola"
+      aria-hidden="true"
     >
       {children}
     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Select from '@/components/Inputs/Select';
 import { ColorsMap, SelectProps } from '@/components/Inputs/types';
 import Clock from '@/icons/regular/Clock';
+import IconWrapper from '@/components/IconWrapper';
 
 type TimeInputProps = Omit<SelectProps, 'searchable'>;
 
@@ -13,7 +14,7 @@ const TimeInput = ({
   placeholder,
   onChange,
 }: TimeInputProps) => {
-  const iconSize = size === 'large' ? 'w-5 h-5' : 'w-3.5 h-3.5';
+  const iconSize = size === 'large' ? 20 : 16;
   const iconPosition = size === 'large' ? 'top-3' : 'top-[9px]';
   const leftPadding = size === 'large' ? 'pl-8' : 'pl-7';
 
@@ -27,7 +28,9 @@ const TimeInput = ({
   return (
     <section className="relative">
       <div className={`absolute ${iconPosition} left-3.5`}>
-        <Clock className={`${iconSize} ${colors[state]}`} />
+        <IconWrapper size={iconSize}>
+          <Clock className={` ${colors[state]}`} />
+        </IconWrapper>
       </div>
       <Select
         options={options}
