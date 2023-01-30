@@ -92,12 +92,14 @@ const Select = ({
       >
         <input
           type="text"
-          className={` ${leftPadding} ${textSize} ${colors[state]} w-full h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
+          className={` ${leftPadding} ${textSize} ${colors[state]} ${
+            !searchable && 'cursor-pointer'
+          } w-full h-full  border-none focus:shadow-none focus:inset-0 focus:ring-0 focus:outline-none focus:border-transparent`}
           ref={searchInputRef}
           placeholder={placeholder}
           value={selectedOption?.label}
           onChange={handleSearch}
-          disabled={!searchable || isDisabled}
+          readOnly={!searchable}
         />
         {!hideArrow && (
           <button type="button">
