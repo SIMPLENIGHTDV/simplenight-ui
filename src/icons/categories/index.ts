@@ -6,7 +6,6 @@ export { default as CatFlights } from './CatFlights';
 export { default as CatHotels } from './CatHotels';
 export { default as CatShows } from './CatShows';
 export { default as CatThings } from './CatThings';
-export { default as CheckIcon } from './CheckIcon';
 export { default as Dining } from './Dining';
 export { default as DoorIcons } from './DoorIcons';
 export { default as Flights } from './Flights';

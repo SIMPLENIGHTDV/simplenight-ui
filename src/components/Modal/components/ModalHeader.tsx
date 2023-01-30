@@ -3,7 +3,7 @@
 /* eslint-disable react/button-has-type */
 import React, { MouseEvent, ReactNode } from 'react';
 import { Dialog } from '@headlessui/react';
-import SvgClose from '@/icons/regular/Close';
+import SvgCross from '@/icons/regular/Cross';
 
 export interface ModalHeaderPops {
   onClose: (event?: MouseEvent<HTMLElement>) => void;
@@ -19,7 +19,7 @@ const ModalHeader = ({ onClose, title, headerAction }: ModalHeaderPops) => (
     <section className="flex items-center justify-end gap-6">
       {headerAction}
       <button onClick={onClose} className="text-dark-1000">
-        <SvgClose className="w-8" />
+        <SvgCross className="w-8" />
       </button>
     </section>
   </header>
