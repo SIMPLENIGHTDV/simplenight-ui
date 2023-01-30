@@ -14,6 +14,7 @@ import {
   removeFormatFromPhoneNumber,
 } from './helpers';
 import { useOnOutsideClick } from '@/hooks';
+import IconWrapper from '@/components/IconWrapper';
 
 export interface PhoneNumberInputSpecificProps {
   defaultPhoneNumber?: string;
@@ -39,7 +40,7 @@ const PhoneNumberInput = ({
 
   const height = size === 'small' ? 'h-8' : 'h-11';
   const textSize = size === 'small' ? 'text-sm' : 'text-base';
-  const iconSize = size === 'large' ? 'w-6 h-6' : 'w-4 h-4';
+  const iconSize = size === 'large' ? 20 : 16;
   const isDisabled = state === 'disabled';
   const isFocused = open || phoneInputIsFocused;
 
@@ -120,11 +121,13 @@ const PhoneNumberInput = ({
             disabled
           />
           <button type="button">
-            {open ? (
-              <ChevronUp className={`${iconSize} text-dark-700`} />
-            ) : (
-              <ChevronDown className={`${iconSize} text-dark-700`} />
-            )}
+            <IconWrapper size={iconSize}>
+              {open ? (
+                <ChevronUp className="text-dark-700" />
+              ) : (
+                <ChevronDown className="text-dark-700" />
+              )}
+            </IconWrapper>
           </button>
           <span className={textSize}>
             {countryCode?.dialCode && formattedDialCode}

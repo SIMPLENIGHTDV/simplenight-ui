@@ -17,11 +17,11 @@ export const Supplier = Template.bind({});
 Supplier.args = {
   message:
     'Supplier Reference ID and Vendor Confirmation Number Can Be found below.',
-  icon: <InfoCircle className="h-5" />,
+  icon: <InfoCircle className="text-primary-1000" />,
 };
 
 export const Pay = Template.bind({});
 Pay.args = {
   message: 'Pay at Property',
-  icon: <InfoCircle className="h-5" />,
+  icon: <InfoCircle className="text-primary-1000" />,
 };

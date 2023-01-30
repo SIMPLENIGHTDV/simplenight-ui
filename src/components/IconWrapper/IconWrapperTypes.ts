@@ -1,7 +1,9 @@
 import React from 'react';
 
 export interface IIconWrapper {
-  size: number;
-  desktop?: number;
+  size: IconSize;
+  desktop?: IconSize;
   children: React.ReactNode;
 }
+
+export type IconSize = 12 | 16 | 20 | 24 | 28 | 32 | 40 | 48 | 60 | 72;

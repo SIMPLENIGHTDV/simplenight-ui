@@ -22,16 +22,14 @@ export const CustomColor = Template.bind({});
 DefaultIcon.args = {};
 
 CustomIcon.args = {
-  icon: <Calendar />,
+  icon: <Calendar className="text-white" />,
 };
 
 CustomSize.args = {
-  sizeRem: 4,
-  icon: <Calendar />,
+  icon: <Calendar className="text-white" />,
 };
 
 CustomColor.args = {
-  sizeRem: 4,
   colorClass: 'bg-purple-500',
-  icon: <Calendar />,
+  icon: <Calendar className="text-white" />,
 };

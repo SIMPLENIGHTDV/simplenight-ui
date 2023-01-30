@@ -2,6 +2,7 @@ import React from 'react';
 import Calendar from '@/icons/regular/Calendar';
 import { ButtonInputProps, ColorsMap } from '@/components/Inputs/types';
 import BaseButtonInput from '@/components/Inputs/BaseButtonInput';
+import IconWrapper from '@/components/IconWrapper';
 
 export interface DateInputProps extends ButtonInputProps {
   placeholder?: string;
@@ -21,7 +22,7 @@ const DateInput = ({
   const textSize = size === 'small' ? 'text-xs' : 'text-sm';
   const textColor = state === 'disabled' ? 'text-dark-600' : 'text-dark-1000';
 
-  const iconSize = size === 'large' ? 'w-4 h-4' : 'w-3.5 h-3.5';
+  const iconSize = size === 'large' ? 20 : 16;
   const idleColor = hasValue ? 'text-dark-1000' : 'text-dark-700';
   const colors: ColorsMap = {
     idle: `${idleColor}`,
@@ -39,7 +40,9 @@ const DateInput = ({
       onClick={onClick}
     >
       <section className={`flex items-center gap-2 ${textSize}`}>
-        <Calendar className={`${iconSize} ${colors[state]}`} />
+        <IconWrapper size={iconSize}>
+          <Calendar className={`${colors[state]}`} />
+        </IconWrapper>
         {!hasValue && <div className="text-dark-600">{placeholder}</div>}
         <div className={`${textColor}`}>{value}</div>
       </section>
