@@ -2,6 +2,7 @@ import React from 'react';
 import useColorButton from '@/hooks';
 import Loader from '../Loader/Loader';
 import { useLoaderColor } from '@/hooks/useLoaderProperties';
+import IconWrapper from '../IconWrapper';
 
 export interface IButton {
   type?: 'primary' | 'outlined' | 'danger' | 'no-background';
@@ -37,31 +38,38 @@ const Button = ({
 }: IButton) => {
   const colors = useColorButton(type);
   const loaderColors = useLoaderColor(type);
+
   const isLarge = size === 'large';
   const height = isLarge ? 'h-11' : 'h-8';
-  const hasText = children !== '';
-  const padding = hasText ? 'px-6' : 'px-3';
-  const activeColorClasses = `${colors.default} ${colors.hover} ${colors.focused} ${colors.pressed}`;
+  const isSquare = children === '';
+  const padding = isSquare ? 'px-3' : 'px-6';
+  const width = !isSquare ? `w-full ${!fullWidth && 'md:w-auto'}` : '';
+  const iconSize = isLarge ? 24 : 16;
+  const fontSize = isLarge ? 'text-base ' : 'text-xs';
+  const loaderSize = isLarge ? 'button-large' : 'button-small';
+
+  const activeClasses = `${colors.default} ${colors.hover} ${colors.focused} ${colors.pressed} cursor-pointer`;
+  const disabledClasses = `cursor-not-allowed ${colors.disabled}`;
+  const loadingClasses = `cursor-not-allowed ${colors.loading}`;
 
   return (
     <button
       type="button"
-      className={`flex justify-center items-center gap-1 border rounded 
-      text-sm font-semibold leading-lg ${height} ${padding} 
-      w-full ${fullWidth ? 'md:w-full' : 'md:w-auto'}
-      ${!disabled && !loading ? `cursor-pointer ${activeColorClasses}` : ''}
-        ${disabled ? `cursor-not-allowed ${colors.disabled}` : ''}
-        ${loading ? `cursor-not-allowed ${colors.loading}` : ''}
+      className={`flex justify-center items-center gap-1 border rounded font-semibold leading-lg group
+      ${fontSize} ${height} ${padding} ${width}
+      ${!disabled && !loading ? activeClasses : ''}
+        ${disabled ? disabledClasses : ''}
+        ${loading ? loadingClasses : ''}
         `}
       onClick={onClick}
       disabled={disabled}
     >
       {loading && (
         <div className="absolute">
-          <Loader size="small" {...loaderColors} />
+          <Loader size={loaderSize} {...loaderColors} />
         </div>
       )}
-      {icon && icon}
+      {icon && <IconWrapper size={iconSize}>{icon}</IconWrapper>}
       {children && children}
     </button>
   );
