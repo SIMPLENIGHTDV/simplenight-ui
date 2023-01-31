@@ -1,25 +1,23 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useLoaderSize } from '../../hooks/useLoaderProperties';
-
-export interface LoaderProps {
-  circleColor?: string;
-  spinnerColor?: string;
-  size?:'large'|'small'
-}
+import { LoaderProps } from './LoaderTypes';
 
 const Loader = ({
   circleColor = 'text-primary-200',
   spinnerColor = 'text-primary-1000',
   size = 'large',
 }: LoaderProps) => {
-  const { spinnerWidth, spinnerHeight, spinnerRadius, spinnerStrokeWidth,
-    strokePath } = useLoaderSize(size);
+  const {
+    spinnerWidth,
+    spinnerHeight,
+    spinnerRadius,
+    spinnerStrokeWidth,
+    strokePath,
+  } = useLoaderSize(size);
 
   return (
-    <div
-      className="relative flex items-center justify-center flex-none "
-    >
+    <div className="relative flex items-center justify-center flex-none ">
       <svg
         className={circleColor}
         width={spinnerWidth}
@@ -28,7 +26,13 @@ const Loader = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx={spinnerWidth / 2} cy={spinnerHeight / 2} r={spinnerRadius} stroke="currentColor" strokeWidth={spinnerStrokeWidth} />
+        <circle
+          cx={spinnerWidth / 2}
+          cy={spinnerHeight / 2}
+          r={spinnerRadius}
+          stroke="currentColor"
+          strokeWidth={spinnerStrokeWidth}
+        />
       </svg>
       <svg
         className={`absolute animate-spin ${spinnerColor}`}
@@ -45,7 +49,6 @@ const Loader = ({
           strokeLinecap="round"
         />
       </svg>
-
     </div>
   );
 };

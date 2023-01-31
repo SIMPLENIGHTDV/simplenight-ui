@@ -4,7 +4,7 @@ export interface ColorStates {
   focused: string;
   pressed: string;
   disabled: string;
-  loading:string
+  loading: string;
 }
 
 const getPrimaryColors = () => ({
@@ -40,7 +40,6 @@ const getNoBackgroundColors = (): ColorStates => ({
   focused: 'focus:text-primary-1000',
   pressed: 'active:text-primary-700',
   loading: 'border-transparent text-transparent',
-
 });
 
 const useColorButton = (type: string): ColorStates => {
