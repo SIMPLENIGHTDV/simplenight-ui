@@ -6,7 +6,7 @@ type TextInputProps = GeneralProps;
 
 const TextInput = ({
   name = '',
-  size = 'large',
+  inputSize = 'large',
   placeholder,
   state = 'idle',
   value,
@@ -15,7 +15,7 @@ const TextInput = ({
   <BaseInput
     name={name}
     type="text"
-    size={size}
+    inputSize={inputSize}
     placeholder={placeholder}
     state={state}
     value={value}

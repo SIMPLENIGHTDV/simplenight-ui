@@ -19,7 +19,7 @@ const Select = ({
   searchable = false,
   options,
   defaultValue,
-  size = 'large',
+  inputSize = 'large',
   state = 'idle',
   placeholder = '',
   onChange,
@@ -31,9 +31,9 @@ const Select = ({
   const [searchResults, setSearchResults] = useState(options);
   const isDisabled = state === 'disabled';
 
-  const height = size === 'small' ? 'h-8' : 'h-11';
-  const textSize = size === 'small' ? 'text-sm' : 'text-base';
-  const iconSize = size === 'large' ? 'w-5 h-5' : 'w-4 h-4';
+  const height = inputSize === 'small' ? 'h-8' : 'h-11';
+  const textSize = inputSize === 'small' ? 'text-sm' : 'text-base';
+  const iconSize = inputSize === 'large' ? 'w-5 h-5' : 'w-4 h-4';
 
   const idleBorderColor = selectedOption
     ? 'border-dark-400'

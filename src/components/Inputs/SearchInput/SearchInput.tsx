@@ -12,14 +12,14 @@ export interface SearchInputSpecificProps {
 type SearchInputProps = SearchInputSpecificProps & GeneralProps;
 
 const SearchInput = ({
-  size = 'large',
+  inputSize = 'large',
   placeholder,
   state = 'idle',
   value,
   onChange,
   onClear,
 }: SearchInputProps) => {
-  const iconSize = size === 'large' ? 20 : 16;
+  const iconSize = inputSize === 'large' ? 20 : 16;
 
   const hasValue = value !== '';
   const notDisabled = state !== 'disabled';
@@ -43,7 +43,7 @@ const SearchInput = ({
       </div>
       <BaseInput
         type="text"
-        size={size}
+        inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}

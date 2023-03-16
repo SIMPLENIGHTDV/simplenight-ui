@@ -9,22 +9,22 @@ export interface PriceInputSpecificProps {
 type PriceInputProps = PriceInputSpecificProps & GeneralProps;
 
 const PriceInput = ({
-  size = 'large',
+  inputSize = 'large',
   placeholder,
   state = 'idle',
   value,
   onChange,
   currency,
 }: PriceInputProps) => {
-  const height = size === 'small' ? 'h-[30px]' : 'h-[42px]';
-  const textSize = size === 'small' ? 'text-xs' : 'text-sm';
+  const height = inputSize === 'small' ? 'h-[30px]' : 'h-[42px]';
+  const textSize = inputSize === 'small' ? 'text-xs' : 'text-sm';
   const currencyColor = state === 'disabled' ? 'bg-dark-200' : 'bg-dark-100';
 
   return (
     <section className="relative flex items-center">
       <BaseInput
         type="number"
-        size={size}
+        inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}

@@ -17,7 +17,7 @@ const defaultProps = {
 const BaseInput = ({
   name = '',
   type,
-  size = 'large',
+  inputSize = 'large',
   placeholder,
   state = 'idle',
   value,
@@ -25,8 +25,8 @@ const BaseInput = ({
   rightPadding = 'pr-3',
   leftPadding = 'pr-3',
 }: BaseInputProps) => {
-  const height = size === 'small' ? 'h-8' : 'h-11';
-  const textSize = size === 'small' ? 'text-sm' : 'text-base';
+  const height = inputSize === 'small' ? 'h-8' : 'h-11';
+  const textSize = inputSize === 'small' ? 'text-sm' : 'text-base';
 
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {

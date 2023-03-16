@@ -27,7 +27,7 @@ type PhoneNumberInputProps = Omit<GeneralProps, 'value'> &
   PhoneNumberInputSpecificProps;
 const PhoneNumberInput = ({
   name,
-  size = 'large',
+  inputSize = 'large',
   state = 'idle',
   defaultCode = 'us',
   onChange,
@@ -38,9 +38,9 @@ const PhoneNumberInput = ({
   const [open, setOpen] = useState(false);
   const [phoneInputIsFocused, setPhoneInputIsFocused] = useState(false);
 
-  const height = size === 'small' ? 'h-8' : 'h-11';
-  const textSize = size === 'small' ? 'text-sm' : 'text-base';
-  const iconSize = size === 'large' ? 20 : 16;
+  const height = inputSize === 'small' ? 'h-8' : 'h-11';
+  const textSize = inputSize === 'small' ? 'text-sm' : 'text-base';
+  const iconSize = inputSize === 'large' ? 20 : 16;
   const isDisabled = state === 'disabled';
   const isFocused = open || phoneInputIsFocused;
 

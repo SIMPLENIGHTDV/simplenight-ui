@@ -1,17 +1,12 @@
+/* eslint-disable react/default-props-match-prop-types */
 import React from 'react';
 
-type TextAreaProps = {
-  name?: string;
-  size?: 'large' | 'small';
+interface TextAreaProps extends React.ComponentPropsWithoutRef<'textarea'> {
+  inputSize?: 'large' | 'small';
   rows?: number;
   placeholder?: string;
   state?: 'idle' | 'disabled' | 'error' | 'success';
-  value: string;
-  onChange: (
-    // eslint-disable-next-line no-unused-vars
-    e: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => void;
-};
+}
 
 export interface ColorsMap {
   [key: string]: string;
@@ -19,7 +14,7 @@ export interface ColorsMap {
 
 const defaultProps = {
   name: '',
-  size: 'large',
+  inputSize: 'large',
   rows: 1,
   state: 'idle',
   placeholder: '',
@@ -27,14 +22,14 @@ const defaultProps = {
 
 const TextArea = ({
   name = '',
-  size = 'large',
-  rows,
-  placeholder,
+  inputSize = 'large',
+  rows = 1,
+  placeholder = '',
   state = 'idle',
   value,
   onChange,
 }: TextAreaProps) => {
-  const textSize = size === 'small' ? 'text-sm' : 'text-base';
+  const textSize = inputSize === 'small' ? 'text-sm' : 'text-base';
   const idleBorderColor = value ? 'border-dark-400' : 'border-dark-300';
   const colors: ColorsMap = {
     idle: `text-dark-1000 ${idleBorderColor} focus:ring-0 focus:border-primary-1000`,

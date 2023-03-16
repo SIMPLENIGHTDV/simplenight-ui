@@ -1,14 +1,8 @@
 import React, { MouseEventHandler } from 'react';
 
-export interface GeneralProps {
-  name?: string;
-  size?: 'large' | 'small';
-  placeholder?: string;
+export interface GeneralProps extends React.ComponentPropsWithoutRef<'input'> {
+  inputSize?: 'large' | 'small';
   state?: 'idle' | 'disabled' | 'error' | 'success';
-  value: string;
-  required?:boolean;
-  // eslint-disable-next-line no-unused-vars
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface SelectOption {

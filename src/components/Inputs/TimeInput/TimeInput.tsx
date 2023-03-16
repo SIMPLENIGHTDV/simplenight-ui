@@ -9,14 +9,14 @@ type TimeInputProps = Omit<SelectProps, 'searchable'>;
 const TimeInput = ({
   options,
   defaultValue,
-  size = 'large',
+  inputSize = 'large',
   state = 'idle',
   placeholder,
   onChange,
 }: TimeInputProps) => {
-  const iconSize = size === 'large' ? 20 : 16;
-  const iconPosition = size === 'large' ? 'top-3' : 'top-[9px]';
-  const leftPadding = size === 'large' ? 'pl-8' : 'pl-7';
+  const iconSize = inputSize === 'large' ? 20 : 16;
+  const iconPosition = inputSize === 'large' ? 'top-3' : 'top-[9px]';
+  const leftPadding = inputSize === 'large' ? 'pl-8' : 'pl-7';
 
   const colors: ColorsMap = {
     idle: 'text-dark-700',
@@ -35,7 +35,7 @@ const TimeInput = ({
       <Select
         options={options}
         defaultValue={defaultValue}
-        size={size}
+        inputSize={inputSize}
         state={state}
         placeholder={placeholder}
         onChange={onChange}

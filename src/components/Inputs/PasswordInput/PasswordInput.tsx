@@ -8,7 +8,7 @@ import IconWrapper from '@/components/IconWrapper';
 type PasswordInputProps = GeneralProps;
 
 const PasswordInput = ({
-  size = 'large',
+  inputSize = 'large',
   placeholder,
   state = 'idle',
   value,
@@ -22,13 +22,13 @@ const PasswordInput = ({
 
   const type = show ? 'text' : 'password';
 
-  const iconSize = size === 'large' ? 20 : 16;
+  const iconSize = inputSize === 'large' ? 20 : 16;
 
   return (
     <section className="relative flex items-center">
       <BaseInput
         type={type}
-        size={size}
+        inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}
