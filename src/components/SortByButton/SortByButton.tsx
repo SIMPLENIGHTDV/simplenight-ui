@@ -1,22 +1,36 @@
 import React from 'react';
-import { ChevronDown } from '@/icons';
+import { ChevronDown, ChevronUp, SortBy } from '@/icons';
 import IconWrapper from '../IconWrapper';
+import { Paragraph } from '@/index';
 
 export interface ISortByButton {
-  label: string;
+  label?: string;
+  isOpen: boolean;
+  onClick: () => void;
 }
-const SortByButton = ({ label }: ISortByButton) => {
+const SortByButton = ({ label = 'Sort', isOpen, onClick }: ISortByButton) => {
   return (
-    <div>
+    <button
+      type="button"
+      className="flex gap-1 py-1 items-center"
+      onClick={onClick}
+    >
       <IconWrapper size={16}>
-        <ChevronDown className="text-primary-1000" />
+        <SortBy className="text-primary-1000" />
       </IconWrapper>
-      {label}
+      <Paragraph className="capitalize">{label}</Paragraph>
       <IconWrapper size={16}>
-        <ChevronDown />
+        {isOpen ? (
+          <ChevronUp className="text-dark-700" />
+        ) : (
+          <ChevronDown className="text-dark-700" />
+        )}
       </IconWrapper>
-    </div>
+    </button>
   );
 };
 
+SortByButton.defaultProps = {
+  label: 'Sort',
+};
 export default SortByButton;
