@@ -1,18 +1,30 @@
 import React from 'react';
+import { Paragraph } from '..';
 import IconWrapper from '../IconWrapper';
+import { ITooltip } from './TooltipTypes';
 
-export interface TooltipProps {
-  children: React.ReactNode;
-  text: string;
-}
-
-const Tooltip = ({ text, children }: TooltipProps) => (
-  <span className="relative group h-full flex items-center">
-    <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-dark-800 px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent before:border-t-dark-800 before:content-[''] group-hover:opacity-100">
-      {text}
+const Tooltip = ({ text, children, position = 'top-left' }: ITooltip) => {
+  const mobilePositionClasses = 'fixed left-[20px] mt-6 ';
+  const desktopPositionClasses = {
+    'top-left': 'md:absolute md:bottom-6  md:left-0',
+    'top-right': 'md:absolute  md:bottom-6  md:right-0',
+    'top-center': 'md:absolute  md:bottom-6  md:left-1/2 md:-translate-x-1/2',
+    'bottom-left': 'md:absolute   md:top-6  md:left-0',
+    'bottom-right': 'md:absolute   md:top-6  md:right-0',
+    'bottom-center': ' md:absolute  md:top-6  md:left-1/2 md:-translate-x-1/2',
+  };
+  return (
+    <span className="group relative inline-block">
+      <span
+        className={`border  opacity-0 group-hover:opacity-100 transition-opacity py-2 px-3 rounded shadow-container
+        w-[calc(100vw-40px)] md:w-max   md:max-w-[335px] capitalize
+         ${mobilePositionClasses} ${desktopPositionClasses[position]}`}
+      >
+        <Paragraph size="xxsmall">{text}</Paragraph>
+      </span>
+      <IconWrapper size={16}>{children}</IconWrapper>
     </span>
-    <IconWrapper size={16}>{children}</IconWrapper>
-  </span>
-);
+  );
+};
 
 export default Tooltip;

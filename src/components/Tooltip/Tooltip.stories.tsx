@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { titles } from '@/constants';
 import Tooltip from './Tooltip';
 import QuestionCircle from '@/icons/regular/QuestionCircle';
+import { ITooltip } from './TooltipTypes';
 
 export default {
   title: `${titles.components}Tooltip`,
@@ -11,26 +12,60 @@ export default {
 } as ComponentMeta<typeof Tooltip>;
 
 const Template: ComponentStory<typeof Tooltip> = (args) => (
-  <section className="p-8">
-    <Tooltip {...args} />
-  </section>
+  <Tooltip {...args} />
 );
 
-export const DefaultTooltip = Template.bind({});
-export const QuestionCirlceTooltip = Template.bind({});
+export const TopLeft = Template.bind({});
+export const TopRight = Template.bind({});
+export const TopCenter = Template.bind({});
+export const BottomLeft = Template.bind({});
+export const BottomRight = Template.bind({});
+export const BottomCenter = Template.bind({});
 
-DefaultTooltip.args = {
-  text: 'Hello World',
-  children: (
-    <button className="bg-dark-200 p-1 rounded text-dark-700">Hover me</button>
-  ),
+const defaultArgs = {
+  text: 'The taxes are tax recovery charges Simplenight pays to its vendors (e.g. hotels); for details, please see our Terms of Use. We retain our service fees as compensation in servicing your travel reservation.',
+  children: <QuestionCircle className="text-dark-700" />,
 };
 
-QuestionCirlceTooltip.args = {
-  text: 'Hello World',
-  children: (
-    <button>
-      <QuestionCircle className="text-dark-700 w-3.5" />
-    </button>
+TopLeft.decorators = [
+  () => (
+    <div className="w-full pt-24 flex justify-center">
+      <TopLeft {...(defaultArgs as ITooltip)} position="top-left" />
+    </div>
   ),
-};
+];
+TopRight.decorators = [
+  () => (
+    <div className="w-full pt-24 flex justify-center">
+      <TopRight {...(defaultArgs as ITooltip)} position="top-right" />
+    </div>
+  ),
+];
+TopCenter.decorators = [
+  () => (
+    <div className="w-full pt-24 flex justify-center">
+      <TopCenter {...(defaultArgs as ITooltip)} position="top-center" />
+    </div>
+  ),
+];
+BottomLeft.decorators = [
+  () => (
+    <div className="w-full flex justify-center">
+      <BottomLeft {...(defaultArgs as ITooltip)} position="bottom-left" />
+    </div>
+  ),
+];
+BottomRight.decorators = [
+  () => (
+    <div className="w-full flex justify-center">
+      <BottomRight {...(defaultArgs as ITooltip)} position="bottom-right" />
+    </div>
+  ),
+];
+BottomCenter.decorators = [
+  () => (
+    <div className="w-full flex justify-center">
+      <BottomCenter {...(defaultArgs as ITooltip)} position="bottom-center" />
+    </div>
+  ),
+];
