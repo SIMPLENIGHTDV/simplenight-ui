@@ -7,7 +7,7 @@ import SvgClose from '@/icons/regular/Close';
 const Toast = ({ children, color }: IToast) => {
   return (
     <div
-      className={`absolute left-5 right-5 bottom-10 lg:right-6 lg:left-auto max-w-[405px] lg:bottom-auto lg:top-6 z-[100] flex items-start p-4 border border-${color}-300 bg-${color}-100 rounded gap-3`}
+      className={`absolute left-5 right-5 bottom-10 lg:right-6 lg:left-auto max-w-[405px] lg:bottom-auto lg:top-6 z-[100] flex items-start p-4 border border-${color}-300 bg-${color}-100 rounded gap-3 shadow-container`}
     >
       {children}
       <IconWrapper size={24}>
