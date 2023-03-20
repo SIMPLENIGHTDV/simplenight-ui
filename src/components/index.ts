@@ -6,3 +6,5 @@ export { default as Paragraph } from './Paragraph';
 export { default as Modal } from './Modal';
 export { default as DualButton } from './DualButton';
 export { default as Counter } from './Counter';
+export { default as Toast } from './Toast';
+export { default as IconWrapper } from './IconWrapper';
