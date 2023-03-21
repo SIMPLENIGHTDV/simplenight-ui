@@ -13,7 +13,6 @@ const Template: ComponentStory<typeof LoaderBar> = (args) => (
 );
 
 export const Standard = Template.bind({});
-export const Blue = Template.bind({});
 Standard.args = {
   loaded: false,
 };

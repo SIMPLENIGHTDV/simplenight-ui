@@ -7,7 +7,7 @@ const LoaderBar = ({ loaded = false }: ILoaderBar) => {
     <div className="w-full h-1 bg-white">
       <div
         className={`bg-primary-1000 h-full ${
-          loaded ? 'w-full' : 'animate-loader'
+          loaded ? 'w-full animate-loaded' : 'animate-loading'
         }`}
       />
     </div>

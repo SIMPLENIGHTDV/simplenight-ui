@@ -119,12 +119,17 @@ module.exports = {
         container: '0 0px 12px rgba(0, 0, 0, 0.08)',
       },
       animation: {
-        loader: 'load 5s linear forwards',
+        loading: 'loading 5s linear forwards',
+        loaded: 'loaded 2s linear forwards',
       },
       keyframes: {
-        load: {
+        loading: {
           '0%': { width: '1%' },
           '100%': { width: '98%' },
+        },
+        loaded: {
+          '0%': { visibility: 'visible' },
+          '100%': { visibility: 'hidden' },
         },
       },
     },
