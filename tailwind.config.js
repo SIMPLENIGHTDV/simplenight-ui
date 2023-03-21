@@ -118,6 +118,15 @@ module.exports = {
       boxShadow: {
         container: '0 0px 12px rgba(0, 0, 0, 0.08)',
       },
+      animation: {
+        loader: 'load 5s linear forwards',
+      },
+      keyframes: {
+        load: {
+          '0%': { width: '1%' },
+          '100%': { width: '98%' },
+        },
+      },
     },
     fontFamily: {
       sans: ['Lato', 'sans-serif'],
