@@ -12,12 +12,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           version: 16.x
-      - uses: pnpm/action-setup@v2.2.2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          version: 7
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       - name: Build Library
         run: npm run build
