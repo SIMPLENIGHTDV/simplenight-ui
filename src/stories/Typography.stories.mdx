@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import Heading from '../components/Heading/Heading.tsx';
 import Paragraph from '../components/Paragraph/Paragraph.tsx';
-import { DocsCard, DocsWrapper, Status } from '@/helpers';
+import { DocsCard, DocsWrapper, Status, TwoColumns } from '@/helpers';
 
 <Meta
   parameters={{
@@ -99,17 +99,98 @@ import { DocsCard, DocsWrapper, Status } from '@/helpers';
 </DocsCard>
 
 <br />
-<div className="flex flex-col gap-3">
-  <Heading tag="h3" textColor="text-dark-700">
-    Headings Examples
-  </Heading>
-  <hr />
-  <Heading tag="h1">This is a H1 title heading with text content</Heading>
-  <Heading tag="h2">This is a H2 title heading with text content</Heading>
-  <Heading tag="h3">This is a H3 title heading with text content</Heading>
-  <Heading tag="h4">This is a H4 title heading with text content</Heading>
-  <Heading tag="h5">This is a H5 title heading with text content</Heading>
-  <Heading tag="h6">This is a H6 title heading with text content</Heading>
+
+<div className="flex flex-col gap-6">
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">H1 Tag Example</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Default Color</Heading>
+      <Heading tag="h1">H1 title heading with default color</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Primary</Heading>
+      <Heading tag="h1" textColor="text-primary-1000">
+        H1 title heading with primary-1000 color
+      </Heading>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">H2 Tag Example</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Default Color</Heading>
+      <Heading tag="h2">H2 title heading with default color</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Primary</Heading>
+      <Heading tag="h2" textColor="text-primary-1000">
+        H2 title heading with primary-1000 color
+      </Heading>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">H3 Tag Example</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Default Color</Heading>
+      <Heading tag="h3">H3 title heading with default color</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Primary</Heading>
+      <Heading tag="h3" textColor="text-primary-1000">
+        H3 title heading with primary-1000 color
+      </Heading>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">H4 Tag Example</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Default Color</Heading>
+      <Heading tag="h4">H4 title heading with default color</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Primary</Heading>
+      <Heading tag="h4" textColor="text-primary-1000">
+        H4 title heading with primary-1000 color
+      </Heading>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">H5 Tag Example</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Default Color</Heading>
+      <Heading tag="h5">H5 title heading with default color</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Primary</Heading>
+      <Heading tag="h5" textColor="text-primary-1000">
+        H5 title heading with primary-1000 color
+      </Heading>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">H6 Tag Example</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Default Color</Heading>
+      <Heading tag="h6">H6 title heading with default color</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Primary</Heading>
+      <Heading tag="h6" textColor="text-primary-1000">
+        H6 title heading with primary-1000 color
+      </Heading>
+    </div>
+  </TwoColumns>
 </div>
 
 <br />
@@ -126,9 +207,9 @@ import { DocsCard, DocsWrapper, Status } from '@/helpers';
     Properties & Variants
   </Heading>
   <div className="flex gap-6">
-    <div className="flex flex-col gap-3 w-40">
+    <div className="flex flex-col gap-6 w-40">
       <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        Tag:
+        Size:
         <br />
         <br />
       </Paragraph>
@@ -140,8 +221,9 @@ import { DocsCard, DocsWrapper, Status } from '@/helpers';
     </div>
     <div className="flex flex-col gap-3">
       <Paragraph size="small" textColor="text-dark-1000">
-        Tags go between h1 and h6, depending on the size of the heading. This is
-        usually named correctly in the Figma design.
+        Tags go between large, medium, small, xsmall and xxsmall, depending on
+        the size of the heading. This is usually named correctly in the Figma
+        design.
       </Paragraph>
       <Paragraph size="small" textColor="text-dark-1000">
         This could have any text-$(variant)-$(value). Is used as a tailwind
@@ -151,47 +233,41 @@ import { DocsCard, DocsWrapper, Status } from '@/helpers';
   </div>
   <hr />
   <Heading tag="h6" textColor="text-dark-700">
-    Tag property
+    Size property sizes
   </Heading>
   <div className="flex gap-6">
     <div className="flex flex-col gap-3">
       <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        H1:
+        Large:
       </Paragraph>
       <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        H2:
+        Medium:
       </Paragraph>
       <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        H3:
+        Small:
       </Paragraph>
       <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        H4:
+        XSmall:
       </Paragraph>
       <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        H5:
-      </Paragraph>
-      <Paragraph size="small" fontWeight="semibold" textColor="text-dark-1000">
-        H6:
+        XXSmall:
       </Paragraph>
     </div>
     <div className="flex flex-col gap-3">
       <Paragraph size="small" textColor="text-dark-1000">
-        <b>Desktop:</b> 60px / 68px | <b>Mobile:</b> 40px / 46px
+        <b>20px / 26px</b>
       </Paragraph>
       <Paragraph size="small" textColor="text-dark-1000">
-        <b>Desktop:</b> 44px / 50px | <b>Mobile:</b> 32px / 40px
+        <b>18px / 24px</b>
       </Paragraph>
       <Paragraph size="small" textColor="text-dark-1000">
-        <b>Desktop:</b> 32px / 38px | <b>Mobile:</b> 24px / 28px
+        <b>16px / 22px</b>
       </Paragraph>
       <Paragraph size="small" textColor="text-dark-1000">
-        <b>Desktop:</b> 24px / 29px | <b>Mobile:</b> 20px / 24px
+        <b>14px / 20px</b>
       </Paragraph>
       <Paragraph size="small" textColor="text-dark-1000">
-        <b>Desktop:</b> 20px / 24px | <b>Mobile:</b> 18px / 22px
-      </Paragraph>
-      <Paragraph size="small" textColor="text-dark-1000">
-        <b>Desktop:</b> 18px / 22px | <b>Mobile:</b> 16px / 20px
+        <b>12px / 15px</b>
       </Paragraph>
     </div>
   </div>
@@ -199,94 +275,120 @@ import { DocsCard, DocsWrapper, Status } from '@/helpers';
 
 <br />
 
-## Body text
-
-### Large
-
-_Regular_
-
-<Paragraph size="large">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-_Strong_
-
-<Paragraph size="large" fontWeight="semibold">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-### Medium
-
-_Regular_
-
-<Paragraph size="medium">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-_Strong_
-
-<Paragraph size="medium" fontWeight="semibold">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-### Small
-
-_Regular_
-
-<Paragraph size="small">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-_Strong_
-
-<Paragraph size="small" fontWeight="semibold">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-### XSmall
-
-_Regular_
-
-<Paragraph size="xsmall">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-_Strong_
-
-<Paragraph size="xsmall" fontWeight="semibold">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-### XXSmall
-
-_Regular_
-
-<Paragraph size="xxsmall">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
-
-_Strong_
-
-<Paragraph size="xxsmall" fontWeight="semibold">
-  The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago offers
-  Parisian-inspired elegance in downtown's Gold Coast neighborhood. An urban
-  sanctuary, the hotel offers easy access to all the city has to offer.
-</Paragraph>
+<div className="flex flex-col gap-3">
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">Large</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Regular</Heading>
+      <Paragraph size="large">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Strong</Heading>
+      <Paragraph size="large" fontWeight="semibold">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">Medium</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Regular</Heading>
+      <Paragraph size="medium">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Strong</Heading>
+      <Paragraph size="medium" fontWeight="semibold">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">Small</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Regular</Heading>
+      <Paragraph size="small">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Strong</Heading>
+      <Paragraph size="small" fontWeight="semibold">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">XSmall</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Regular</Heading>
+      <Paragraph size="xsmall">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Strong</Heading>
+      <Paragraph size="xsmall" fontWeight="semibold">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+  </TwoColumns>
+  <TwoColumns>
+    <div className="col-span-2">
+      <Heading tag="h4">XXSmall</Heading>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Regular</Heading>
+      <Paragraph size="xxsmall">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+    <div className="flex flex-col gap-4">
+      <Heading tag="h6">Strong</Heading>
+      <Paragraph size="xxsmall" fontWeight="semibold">
+        The prestigious AAA Five Diamond award-winning Waldorf Astoria Chicago
+        offers Parisian-inspired elegance in downtown's Gold Coast neighborhood.
+        An urban sanctuary, the hotel offers easy access to all the city has to
+        offer.
+      </Paragraph>
+    </div>
+  </TwoColumns>
+</div>

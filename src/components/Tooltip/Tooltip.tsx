@@ -14,7 +14,7 @@ const Tooltip = ({ text, children, position = 'top-left' }: ITooltip) => {
     'bottom-center': ' md:absolute  md:top-6  md:left-1/2 md:-translate-x-1/2',
   };
   return (
-    <span className="group relative inline-block">
+    <span className="relative inline-block group">
       <span
         className={`border  text-left opacity-0 group-hover:opacity-100 transition-opacity py-2 px-3 rounded shadow-container
         w-[calc(100vw-40px)] md:w-max   md:max-w-[335px] capitalize bg-white z-10

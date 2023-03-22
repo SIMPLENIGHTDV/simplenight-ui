@@ -1,8 +1,6 @@
 # **Simplenight UI**
 
-This is the first Simplenight UI draft
-
-URL: https://simplenightdv.github.io/simplenight-ui
+This is the Simpleniht UI library. It is a collection of components and icons that are used in the Simplenight web application.
 
 ## **Initialize project**
 
@@ -15,9 +13,9 @@ pnpm run initialize
 ## **Run project**
 
 ```
-npm run storybook or
-yarn storybook or
-pnpm run storybook
+npm run storybook/dev or
+yarn storybook/dev or
+pnpm run/dev storybook
 ```
 
 This will run in port 6006.
@@ -34,24 +32,10 @@ Run `yarn changeset` to update current versioning with patch and describe your t
 
 ## **How to install this package**
 
-1. First you should have .npmrc configured with your GITHUB_TOKEN, as it uses github packages
+1. Super simple, just install the library with the next commands:
 
    ```
-   registry=https://registry.npmjs.org/
-   @YOUR_USER:registry=https://npm.pkg.github.com/
-   //npm.pkg.github.com/:_authToken=YOUR_TOKEN
+   npm install @simplenight/ui or
+   pnpm add @simplenight/ui or
+   yarn add @simplenight/ui
    ```
-
-2. Then if everything is correct, you should install the library with the next commands:
-
-   ```
-   npm install @simplnightdv/simplenight-ui or
-   pnpm add @simplnightdv/simplenight-ui or
-   yarn add @simplnightdv/simplenight-ui
-   ```
-
-**More information:** [GITHUB DOCS](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
-
-## **How to deploy a repo with a GITHUB package**
-
-**Details:** [GITHUB DOCS](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
