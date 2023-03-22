@@ -1,16 +1,16 @@
 // Bases Button
-export * from './BaseButtonInput';
-export * from './BaseInput';
+export { default as BaseButtonInput } from './BaseButtonInput';
+export { default as BaseInput } from './BaseInput';
 // Inputs
-export * from './DateInput';
-export * from './NumberInput';
-export * from './PasswordInput';
-export * from './PhoneNumberInput';
-export * from './SearchInput';
-export * from './TextInput';
-export * from './TimeInput';
-export * from './TravelersInput';
-export * from './TravelersRoomsInput';
+export { default as DateInput } from './DateInput';
+export { default as NumberInput } from './NumberInput';
+export { default as PasswordInput } from './PasswordInput';
+export { default as PhoneNumberInput } from './PhoneNumberInput';
+export { default as SearchInput } from './SearchInput';
+export { default as TextInput } from './TextInput';
+export { default as TimeInput } from './TimeInput';
+export { default as TravelersInput } from './TravelersInput';
+export { default as TravelersRoomsInput } from './TravelersRoomsInput';
 // Others
-export * from './TextArea';
-export * from './Select';
+export { default as TextArea } from './TextArea';
+export { default as Select } from './Select';
