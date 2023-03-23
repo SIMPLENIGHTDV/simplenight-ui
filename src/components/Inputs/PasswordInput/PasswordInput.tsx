@@ -21,19 +21,15 @@ const PasswordInput = ({
     setShow(!show);
   };
 
-  const type = show ? 'text' : 'password';
-
   const iconSize = inputSize === 'large' ? 20 : 16;
 
   return (
     <section className="relative flex items-center">
       <BaseInput
-        inputType={type}
         inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}
-        onChange={onChange}
         rightPadding="pr-12"
         {...rest}
       />

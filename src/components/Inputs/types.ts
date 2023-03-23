@@ -1,6 +1,6 @@
-import React, { MouseEventHandler } from 'react';
+import { type ComponentPropsWithRef, type MouseEventHandler } from 'react';
 
-export interface GeneralProps extends React.ComponentPropsWithoutRef<'input'> {
+export interface GeneralProps extends ComponentPropsWithRef<'input'> {
   inputSize?: 'large' | 'small';
   state?: 'idle' | 'disabled' | 'error' | 'success';
 }

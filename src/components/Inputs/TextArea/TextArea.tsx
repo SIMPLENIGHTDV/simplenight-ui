@@ -1,7 +1,6 @@
-/* eslint-disable react/default-props-match-prop-types */
-import React from 'react';
+import React, { type ComponentPropsWithRef } from 'react';
 
-interface TextAreaProps extends React.ComponentPropsWithoutRef<'textarea'> {
+interface TextAreaProps extends ComponentPropsWithRef<'textarea'> {
   inputSize?: 'large' | 'small';
   rows?: number;
   placeholder?: string;
@@ -13,7 +12,6 @@ export interface ColorsMap {
 }
 
 const defaultProps = {
-  name: '',
   inputSize: 'large',
   rows: 1,
   state: 'idle',
@@ -21,7 +19,6 @@ const defaultProps = {
 };
 
 const TextArea = ({
-  name = '',
   inputSize = 'large',
   rows = 1,
   placeholder = '',
@@ -45,8 +42,6 @@ const TextArea = ({
   return (
     <textarea
       rows={rows}
-      name={name}
-      id={name}
       placeholder={placeholder}
       value={value}
       className={`rounded w-full resize-none  ${colors[state]} ${textSize} `}
