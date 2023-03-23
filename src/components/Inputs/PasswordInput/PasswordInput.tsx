@@ -13,6 +13,7 @@ const PasswordInput = ({
   state = 'idle',
   value,
   onChange,
+  ...rest
 }: PasswordInputProps) => {
   const [show, setShow] = useState(false);
 
@@ -27,13 +28,14 @@ const PasswordInput = ({
   return (
     <section className="relative flex items-center">
       <BaseInput
-        type={type}
+        inputType={type}
         inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}
         onChange={onChange}
         rightPadding="pr-12"
+        {...rest}
       />
       <button className="absolute right-4" onClick={handleShow} type="button">
         <IconWrapper size={iconSize}>

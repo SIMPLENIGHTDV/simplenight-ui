@@ -15,6 +15,7 @@ const PriceInput = ({
   value,
   onChange,
   currency,
+  ...rest
 }: PriceInputProps) => {
   const height = inputSize === 'small' ? 'h-[30px]' : 'h-[42px]';
   const textSize = inputSize === 'small' ? 'text-xs' : 'text-sm';
@@ -23,13 +24,14 @@ const PriceInput = ({
   return (
     <section className="relative flex items-center">
       <BaseInput
-        type="number"
+        inputType="number"
         inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}
         onChange={onChange}
         rightPadding="pr-16"
+        {...rest}
       />
       <section
         className={`flex right-0 items-center justify-center absolute w-[52px] m-px rounded-r ${height} ${currencyColor}`}
