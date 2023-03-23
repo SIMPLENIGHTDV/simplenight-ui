@@ -16,7 +16,6 @@ const SearchInput = ({
   placeholder,
   state = 'idle',
   value,
-  onChange,
   onClear,
   ...rest
 }: SearchInputProps) => {
@@ -43,12 +42,10 @@ const SearchInput = ({
         </IconWrapper>
       </div>
       <BaseInput
-        inputType="text"
         inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}
-        onChange={onChange}
         rightPadding="pr-11"
         leftPadding="pl-11"
         {...rest}

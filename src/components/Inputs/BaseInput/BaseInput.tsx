@@ -2,7 +2,6 @@ import React from 'react';
 import { ColorsMap, GeneralProps } from '@/components/Inputs/types';
 
 export interface BaseInputSpecificProps {
-  inputType: 'text' | 'password' | 'number';
   rightPadding?: string;
   leftPadding?: string;
 }
@@ -16,12 +15,10 @@ const defaultProps = {
 
 const BaseInput = ({
   name = '',
-  inputType,
   inputSize = 'large',
   placeholder,
   state = 'idle',
   value,
-  onChange,
   rightPadding = 'pr-3',
   leftPadding = 'pr-3',
   ...rest
@@ -45,12 +42,10 @@ const BaseInput = ({
     <input
       id={name}
       name={name}
-      type={inputType}
       placeholder={placeholder}
       className={`rounded w-full ${height} ${leftPadding} ${rightPadding} ${colors[state]} ${textSize}`}
       disabled={isDisabled}
       value={value}
-      onChange={onChange}
       {...rest}
     />
   );

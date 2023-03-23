@@ -13,7 +13,6 @@ const PriceInput = ({
   placeholder,
   state = 'idle',
   value,
-  onChange,
   currency,
   ...rest
 }: PriceInputProps) => {
@@ -24,12 +23,10 @@ const PriceInput = ({
   return (
     <section className="relative flex items-center">
       <BaseInput
-        inputType="number"
         inputSize={inputSize}
         placeholder={placeholder}
         state={state}
         value={value}
-        onChange={onChange}
         rightPadding="pr-16"
         {...rest}
       />
