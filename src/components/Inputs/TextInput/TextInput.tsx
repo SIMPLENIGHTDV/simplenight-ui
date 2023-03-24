@@ -22,7 +22,7 @@ const TextInput = forwardRef(
       placeholder={placeholder}
       state={state}
       value={value}
-      ref={ref}
+      innerRef={ref}
       {...rest}
     />
   ),

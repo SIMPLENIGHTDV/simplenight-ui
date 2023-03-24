@@ -6,6 +6,7 @@ export { default as DateInput } from './DateInput';
 export { default as NumberInput } from './NumberInput';
 export { default as PasswordInput } from './PasswordInput';
 export { default as PhoneNumberInput } from './PhoneNumberInput';
+export { default as PriceInput } from './PriceInput';
 export { default as SearchInput } from './SearchInput';
 export { default as TextInput } from './TextInput';
 export { default as TimeInput } from './TimeInput';

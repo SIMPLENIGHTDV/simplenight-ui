@@ -35,7 +35,7 @@ const PasswordInput = forwardRef(
           state={state}
           value={value}
           rightPadding="pr-12"
-          ref={ref}
+          innerRef={ref}
           {...rest}
         />
         <button className="absolute right-4" onClick={handleShow} type="button">

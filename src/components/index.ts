@@ -15,6 +15,7 @@ export { DateInput } from './Inputs';
 export { NumberInput } from './Inputs';
 export { PasswordInput } from './Inputs';
 export { PhoneNumberInput } from './Inputs';
+export { PriceInput } from './Inputs';
 export { SearchInput } from './Inputs';
 export { TextInput } from './Inputs';
 export { TimeInput } from './Inputs';

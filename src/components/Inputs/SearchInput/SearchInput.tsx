@@ -52,7 +52,7 @@ const SearchInput = forwardRef(
           value={value}
           rightPadding="pr-11"
           leftPadding="pl-11"
-          ref={ref}
+          innerRef={ref}
           {...rest}
         />
         {showClearButton && (
