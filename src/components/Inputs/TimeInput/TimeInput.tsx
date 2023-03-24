@@ -12,7 +12,7 @@ const TimeInput = ({
   inputSize = 'large',
   state = 'idle',
   placeholder,
-  onChange,
+  ...rest
 }: TimeInputProps) => {
   const iconSize = inputSize === 'large' ? 20 : 16;
   const iconPosition = inputSize === 'large' ? 'top-3' : 'top-[9px]';
@@ -38,9 +38,9 @@ const TimeInput = ({
         inputSize={inputSize}
         state={state}
         placeholder={placeholder}
-        onChange={onChange}
         leftPadding={leftPadding}
         hideArrow
+        {...rest}
       />
     </section>
   );
