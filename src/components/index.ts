@@ -37,3 +37,4 @@ export { default as Tag } from './Tag';
 export { default as Toast } from './Toast';
 export { default as Toggle } from './Toggle';
 export { default as Tooltip } from './Tooltip';
+export { default as RecomendationCard } from './RecomendationCard';
