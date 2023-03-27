@@ -31,7 +31,9 @@ const Select = forwardRef(
     }: SelectSpecificProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const [selectedOption, setSelectedOption] = useState(defaultValue);
+    const [selectedOption, setSelectedOption] = useState<
+      SelectOption | undefined
+    >(defaultValue);
     const [open, setOpen] = useState(false);
     const [searchResults, setSearchResults] = useState(options);
     const isDisabled = state === 'disabled';
