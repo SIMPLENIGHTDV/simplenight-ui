@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState, ForwardedRef, forwardRef } from 'react';
@@ -13,6 +14,11 @@ import {
 export interface SelectSpecificProps extends SelectProps {
   leftPadding?: string;
   hideArrow?: boolean;
+  options: SelectOption[];
+  defaultValue?: SelectOption;
+  searchable?: boolean;
+  // eslint-disable-next-line no-unused-vars
+  onChange: (option: SelectOption) => void;
 }
 
 const Select = forwardRef(
