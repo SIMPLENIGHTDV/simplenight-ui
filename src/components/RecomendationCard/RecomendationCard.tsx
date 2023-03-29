@@ -39,7 +39,7 @@ RecomendationCard.Image = ({ src }: IRecomendationCardImage) => {
     return (
       <img
         src={src}
-        className="object-fill max-h-[135px] w-[153px] sm:w-[392px]"
+        className="object-cover max-h-[135px] w-[153px] sm:w-[392px]"
       />
     )
   }
