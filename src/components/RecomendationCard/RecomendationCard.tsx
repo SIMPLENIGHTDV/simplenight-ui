@@ -35,24 +35,24 @@ RecomendationCard.Footer = ({ title, price }: IRecomendationCardFooter) => {
 };
 
 RecomendationCard.Image = ({ src }: IRecomendationCardImage) => {
-
-  return (!!src) ?
-    (<img
-      src={src}
-      className="object-fill max-h-[135px] w-[153px] sm:w-[392px]"
-    />) :
-    (
-      <div
-        className="pt-2 object-fill h-[135px] max-h-[135px] w-[153px] sm:w-[392px]"
-      >
-        <ImageEmpty 
-          variant='primary'
-          preserveAspectRatio="xMidYMid meet"
-          width= 'inherit'
-          height= 'inherit'
-        />
-      </div>
+  if (src) {
+    return (
+      <img
+        src={src}
+        className="object-fill max-h-[135px] w-[153px] sm:w-[392px]"
+      />
     )
+  }
+  return (
+    <div className="pt-2 object-fill h-[135px] max-h-[135px] w-[153px] sm:w-[392px]">
+      <ImageEmpty 
+        variant='primary'
+        preserveAspectRatio="xMidYMid meet"
+        width= 'inherit'
+        height= 'inherit'
+      />
+    </div>
+  )
 };
 
 export default RecomendationCard;
