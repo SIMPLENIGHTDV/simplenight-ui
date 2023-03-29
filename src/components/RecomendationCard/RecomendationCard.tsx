@@ -13,6 +13,7 @@ const RecomendationCard = ({ src, title, price, onClick }: IRecomendationCard) =
         rounded-[4px] border-solid sm:border-[1px] border-dark-300 max-w-[153px] 
         sm:max-w-[392px] flex flex-col items-start`}
       onClick={onClick}
+      type='button'
     >
       <RecomendationCard.Image src={src}/>
       <RecomendationCard.Footer title={title} price={price}/>
