@@ -4,6 +4,7 @@ export interface IRecomendationCard extends React.PropsWithChildren<{}> {
   src?: string;
   title: string;
   price: string;
+  onClick?: () => void;
 }
 
 export interface IRecomendationCardFooter {

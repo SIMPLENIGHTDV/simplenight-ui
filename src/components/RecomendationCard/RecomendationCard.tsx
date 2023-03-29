@@ -4,21 +4,25 @@ import { Paragraph } from '@/index';
 import { IRecomendationCard, IRecomendationCardFooter, IRecomendationCardImage } from './RecomendationCardTypes';
 import ImageEmpty from '@/images/ImageEmpty';
 
-const RecomendationCard = ({ src, title, price }: IRecomendationCard) => {
+const RecomendationCard = ({ src, title, price, onClick }: IRecomendationCard) => {
 
   return (
-    <div
-      className={`rounded-[4px] border-solid sm:border-[1px] border-dark-300 max-w-[153px] sm:max-w-[392px] flex flex-col items-start`}
+    <button
+      className={`outline-0 focus:sm:border-[4px] focus:border-primary-700 active:sm:border-[4px] 
+        active:border-primary-700 hover:sm:border-[4px] hover:border-primary-700 
+        rounded-[4px] border-solid sm:border-[1px] border-dark-300 max-w-[153px] 
+        sm:max-w-[392px] flex flex-col items-start`}
+      onClick={onClick}
     >
       <RecomendationCard.Image src={src}/>
       <RecomendationCard.Footer title={title} price={price}/>
-    </div>
+    </button>
   );
 };
 
 RecomendationCard.Footer = ({ title, price }: IRecomendationCardFooter) => {
   return (
-    <div className="rounded-[4px] pt-2 sm:pr-5 sm:pl-5 sm:p-4 sm:bg-white flex flex-col sm:flex-row w-[153px] sm:w-[390px] justify-between">
+    <div className="rounded-[4px] pt-2 sm:pr-5 sm:pl-5 sm:p-4 sm:bg-white flex flex-col sm:flex-row w-[100%] justify-between">
       <Paragraph className='whitespace-nowrap pb-1 sm:pb-0'  size="medium" fontWeight="semibold">
         {title}
       </Paragraph>
