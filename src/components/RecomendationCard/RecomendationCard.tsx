@@ -42,11 +42,9 @@ RecomendationCard.Image = ({ src }: IRecomendationCardImage) => {
       >
         <ImageEmpty 
           variant='primary'
-          props={{
-            preserveAspectRatio:"xMidYMid meet",
-            width: 'inherit',
-            height: 'inherit'
-          }}
+          preserveAspectRatio="xMidYMid meet"
+          width= 'inherit'
+          height= 'inherit'
         />
       </div>
     )
