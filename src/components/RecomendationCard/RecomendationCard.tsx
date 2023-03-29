@@ -38,7 +38,7 @@ RecomendationCard.Image = ({ src }: IRecomendationCardImage) => {
     />) :
     (
       <div
-        className="object-fill h-[135px] max-h-[135px] w-[153px] sm:w-[392px]"
+        className="pt-2 object-fill h-[135px] max-h-[135px] w-[153px] sm:w-[392px]"
       >
         <ImageEmpty 
           variant='primary'
