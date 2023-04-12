@@ -5,7 +5,7 @@ import { useLoaderColor } from '@/hooks/useLoaderProperties';
 import IconWrapper from '../IconWrapper';
 
 export interface IButton {
-  type?: 'primary' | 'outlined' | 'danger' | 'no-background';
+  type?: 'primary' | 'secondary' | 'outlined' | 'danger' | 'no-background';
   disabled?: boolean;
   size?: 'large' | 'small';
   onClick?: () => void;
@@ -13,6 +13,7 @@ export interface IButton {
   icon?: React.ReactElement;
   children?: string;
   fullWidth?: boolean;
+  compact?: boolean;
 }
 
 const defaultProps = {
@@ -24,6 +25,7 @@ const defaultProps = {
   children: '',
   icon: '',
   fullWidth: false,
+  compact: false,
 };
 
 const Button = ({
@@ -35,6 +37,7 @@ const Button = ({
   fullWidth = false,
   onClick,
   loading = false,
+  compact = false,
 }: IButton) => {
   const colors = useColorButton(type);
   const loaderColors = useLoaderColor(type);
@@ -56,7 +59,7 @@ const Button = ({
     <button
       type="button"
       className={`flex justify-center items-center gap-1 border rounded font-semibold leading-lg group
-      ${fontSize} ${height} ${padding} ${width}
+      ${fontSize} ${height} ${compact ? '' : padding} ${width}
       ${!disabled && !loading ? activeClasses : ''}
         ${disabled ? disabledClasses : ''}
         ${loading ? loadingClasses : ''}

@@ -41,11 +41,20 @@ const getNoBackgroundColors = (): ColorStates => ({
   pressed: 'active:text-primary-700',
   loading: 'border-transparent text-transparent',
 });
+const getSecondaryColors = (): ColorStates => ({
+  default: 'border-transparent text-dark-1000',
+  hover: 'hover:text-primary-1000',
+  disabled: 'border-transparent text-dark-700',
+  focused: 'focus:text-primary-1000',
+  pressed: 'active:text-primary-700',
+  loading: 'border-transparent text-transparent',
+});
 
 const useColorButton = (type: string): ColorStates => {
   if (type === 'outlined') return getOutlinedColors();
   if (type === 'danger') return getDangerColors();
   if (type === 'no-background') return getNoBackgroundColors();
+  if (type === 'secondary') return getSecondaryColors();
   return getPrimaryColors();
 };
 

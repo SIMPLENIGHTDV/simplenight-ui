@@ -1,12 +1,21 @@
 import { LoaderProps } from '@/components/Loader/LoaderTypes';
 
-type ButtonType = 'primary' | 'outlined' | 'danger' | 'no-background';
+type ButtonType =
+  | 'primary'
+  | 'secondary'
+  | 'outlined'
+  | 'danger'
+  | 'no-background';
 
 export const useLoaderColor = (type: ButtonType): LoaderProps => {
   const loaderProps = {
     primary: {
       circleColor: 'text-white opacity-25',
       spinnerColor: 'text-white',
+    },
+    secondary: {
+      circleColor: 'text-primary-1000 opacity-25',
+      spinnerColor: 'text-primary-1000',
     },
     outlined: {
       circleColor: 'text-black opacity-25',

@@ -209,6 +209,19 @@ AllButtons.decorators = [
           size="small"
         />
       </div>
+
+      <Heading tag="h4">Secondary Button</Heading>
+      <div className="grid grid-cols-1 md:grid-cols-9 justify-items-center gap-2">
+        <JustText {...(JustText.args as IButton)} type="secondary" compact />
+        <TextAndIcon {...(TextAndIcon.args as IButton)} type="secondary" />
+        <TextAndIcon
+          {...(TextAndIcon.args as IButton)}
+          type="secondary"
+          disabled
+        />
+        <JustIcon {...(JustIcon.args as IButton)} type="secondary" disabled />
+        <JustIcon {...(JustIcon.args as IButton)} type="secondary" loading />
+      </div>
     </div>
   ),
 ];
